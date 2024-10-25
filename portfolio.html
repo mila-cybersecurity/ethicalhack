@@ -10,6 +10,20 @@
     <link rel="stylesheet" href="css/bootstrap4-neon-glow.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
+    <style>
+        .card {
+            height: 100%; /* Asegura que las tarjetas ocupen el 100% de la altura disponible */
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Asegura que el contenido se distribuya uniformemente */
+        }
+        .card-img-top {
+            height: 200px; /* Mantiene la altura de las imágenes */
+            object-fit: cover; /* Mantiene la proporción de las imágenes */
+        }
+    </style>
 </head>
 <body>
 
@@ -79,12 +93,11 @@
         <!-- Tarjeta para Auditoría de Ciberseguridad -->
         <div class="col-md-4">
             <div class="card">
-                <img class="card-img-top" src="images/Auditoria.jpg" alt="Imagen Auditoría" style="height: 200px; object-fit: cover;">
+                <img class="card-img-top" src="images/Auditoria.jpg" alt="Imagen Auditoría">
                 <div class="card-body">
                     <h5 class="card-title">Auditoría de Ciberseguridad</h5>
-                    <p class="card-text">Auditoría realizada sobre un laboratorio vulnerable, incluye resumen ejecutivo y técnico, hallazgos y recomendaciones.</p>
+                    <p class="card-text">Auditoría realizada para el exámen de pentesting en un laboratorio vulnerable, incluye resumen ejecutivo y técnico, hallazgos y recomendaciones.</p>
                     <a href="auditoria/Reporte-pentesting.pdf" class="btn btn-primary">Ver Reporte</a>
-                    <div style="height: 80px;"></div> <!-- Espacio vacío para igualar altura -->
                 </div>
             </div>
         </div>
@@ -92,7 +105,7 @@
         <!-- Tarjeta para Scripts de Python -->
         <div class="col-md-4">
             <div class="card">
-                <img class="card-img-top" src="images/python.jpg" alt="Imagen Python" style="height: 200px; object-fit: cover;">
+                <img class="card-img-top" src="images/python.jpg" alt="Imagen Python">
                 <div class="card-body">
                     <h5 class="card-title">Scripts en Python</h5>
                     <ul class="list-group list-group-flush">
@@ -115,3 +128,4 @@
 
 </body>
 </html>
+
