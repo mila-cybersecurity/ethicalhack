@@ -10,6 +10,17 @@
     <link rel="stylesheet" href="css/bootstrap4-neon-glow.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
+
+    <style>
+        .card {
+            height: 100%; /* Esto asegura que todas las tarjetas tengan la misma altura */
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Esto distribuye el contenido uniformemente */
+        }
+    </style>
 </head>
 <body>
 
@@ -82,7 +93,7 @@
                 <img class="card-img-top" src="images/Auditoria.jpg" alt="Imagen Auditoría">
                 <div class="card-body">
                     <h5 class="card-title">Auditoría de Ciberseguridad</h5>
-                    <p class="card-text">Auditoría realizada para el exámen de pentesting en un laboratorio vulnerable, incluye resumen ejecutive y técnico, hallazgos y recomendaciones.</p>
+                    <p class="card-text">Auditoría realizada para el exámen de pentesting en un laboratorio vulnerable, incluye resumen ejecutivo y técnico, hallazgos y recomendaciones.</p>
                     <a href="auditoria/Reporte-pentesting.pdf" class="btn btn-primary">Ver Reporte</a>
                 </div>
             </div>
