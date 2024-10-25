@@ -10,17 +10,6 @@
     <link rel="stylesheet" href="css/bootstrap4-neon-glow.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
-
-    <style>
-        .card {
-            height: 100%; /* Esto asegura que todas las tarjetas tengan la misma altura */
-        }
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Esto distribuye el contenido uniformemente */
-        }
-    </style>
 </head>
 <body>
 
@@ -72,7 +61,7 @@
 
     <div class="row mb-4">
         <!-- Tarjeta para Writeups de Hack The Box -->
-        <div class="col-md-4"> <!-- Cambiado a col-md-4 -->
+        <div class="col-md-4">
             <div class="card">
                 <img class="card-img-top" src="images/htblabs.png" alt="Imagen Hack The Box">
                 <div class="card-body">
@@ -88,27 +77,29 @@
         </div>
 
         <!-- Tarjeta para Auditoría de Ciberseguridad -->
-        <div class="col-md-4"> <!-- Cambiado a col-md-4 -->
+        <div class="col-md-4">
             <div class="card">
-                <img class="card-img-top" src="images/Auditoria.jpg" alt="Imagen Auditoría">
+                <img class="card-img-top" src="images/Auditoria.jpg" alt="Imagen Auditoría" style="height: 200px; object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title">Auditoría de Ciberseguridad</h5>
-                    <p class="card-text">Auditoría realizada para el exámen de pentesting en un laboratorio vulnerable, incluye resumen ejecutivo y técnico, hallazgos y recomendaciones.</p>
+                    <p class="card-text">Auditoría realizada sobre un laboratorio vulnerable, incluye resumen ejecutivo y técnico, hallazgos y recomendaciones.</p>
                     <a href="auditoria/Reporte-pentesting.pdf" class="btn btn-primary">Ver Reporte</a>
+                    <div style="height: 40px;"></div> <!-- Espacio vacío para igualar altura -->
                 </div>
             </div>
         </div>
 
         <!-- Tarjeta para Scripts de Python -->
-        <div class="col-md-4"> <!-- Cambiado a col-md-4 -->
+        <div class="col-md-4">
             <div class="card">
-                <img class="card-img-top" src="images/python.jpg" alt="Imagen Python">
+                <img class="card-img-top" src="images/python.jpg" alt="Imagen Python" style="height: 200px; object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title">Scripts en Python</h5>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item list-group-item-action">Script 1: Análisis de Datos</li>
                         <li class="list-group-item list-group-item-action">Script 2: Generación de Reportes</li>
                         <li class="list-group-item list-group-item-action">Script 3: Automatización de Tareas</li>
+                        <li class="list-group-item list-group-item-action">Script 4: Monitoreo de Sistema</li> <!-- Sección añadida -->
                     </ul>
                 </div>
             </div>
