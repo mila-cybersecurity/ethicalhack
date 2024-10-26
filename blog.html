@@ -12,7 +12,7 @@
     <link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
 
     <style>
-        /* For mobile: make the navbar visible without collapsing */
+        /* Para dispositivos móviles: mostrar menú sin colapsar */
         @media (max-width: 767.98px) {
             .navbar-collapse {
                 display: flex !important;
@@ -23,10 +23,13 @@
             }
         }
 
-        /* Adjust font size for the "Blog" title on mobile screens */
-        @media (max-width: 767.98px) {
-            .jumbotron h1.display-2 {
-                font-size: 2.5rem; /* Adjusted size for mobile */
+        /* Clase compartida para ajustar el tamaño del título en pantallas pequeñas */
+        .portfolio-title {
+            font-size: 3rem; /* tamaño de fuente general */
+        }
+        @media (max-width: 576px) {
+            .portfolio-title {
+                font-size: 2.5rem; /* reducir solo en pantallas pequeñas */
             }
         }
     </style>
@@ -59,7 +62,7 @@
 <!-- Jumbotron Section -->
 <div class="jumbotron bg-transparent mb-0">
     <div class="container">
-        <h1 class="display-2">Blog<span class="vim-caret">/</span></h1> 
+        <h1 class="display-2 portfolio-title">Blog<span class="vim-caret">/</span></h1> 
         <div class="lead mb-3 text-mono text-success">IDOR::SQLi::XSS</div> 
     </div>
 </div>
@@ -101,7 +104,7 @@
 
 <!-- Optional JavaScript -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4f86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6Hty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4f86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
