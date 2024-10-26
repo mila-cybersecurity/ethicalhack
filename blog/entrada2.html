@@ -30,13 +30,25 @@
             }
         }
 
-        /* Adjust card styles */
+        /* Full height card */
         .card {
-            margin-top: -40px; /* Move the card upwards */
             width: 100%; /* Full width */
+            height: calc(100vh - 80px); /* Full height minus navbar height (adjust if needed) */
+            margin-top: 0; /* No margin on top */
         }
+
+        /* Adjust card body padding */
+        .card-body {
+            padding: 20px; /* Adjust padding as necessary */
+        }
+
+        /* Adjust container */
         .container {
-            padding-top: 0; /* Remove top padding from the container */
+            padding: 0; /* Remove padding from container */
+            height: 100vh; /* Full height for container */
+            display: flex;
+            align-items: center; /* Center content vertically */
+            justify-content: center; /* Center content horizontally */
         }
     </style>
 </head>
@@ -66,16 +78,16 @@
 </div>
 
 <!-- Jumbotron Section -->
-<div class="jumbotron bg-transparent mb-0">
+<div class="jumbotron bg-transparent mb-0" style="padding-bottom: 0;"> 
     <div class="container">
         <h1 class="display-2">Todo sobre SQLi<span class="vim-caret">/</span></h1> <!-- Título actualizado -->
         <div class="lead mb-3 text-mono text-success">SQL Injection </div> <!-- Texto adicional -->
     </div>
 </div>
 
-<div class="container py-5">
+<div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card text-center">
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
