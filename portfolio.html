@@ -11,21 +11,55 @@
     <link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
 
     <style>
-        /* Ajustes para tarjetas */
+        /* Ajustes de la fuente y color para mantener consistencia */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #ccc; /* similar al texto de index.html */
+        }
+
+        .portfolio-title {
+            font-size: 3rem; /* ajuste general */
+            color: #ffffff; /* mismo color del título en index.html */
+        }
+        .text-mono {
+            font-family: 'Hack', monospace;
+            color: #37ff8b; /* color del texto secundario en el index */
+        }
+        .text-grey {
+            color: #aaa; /* tono gris consistente */
+        }
+        .text-spacey {
+            letter-spacing: 0.05em;
+        }
+        .text-darkgrey {
+            color: #666; /* tono similar al de index.html */
+        }
+
+        /* Estructura de tarjetas */
         .card {
             height: 100%;
+            background-color: #222; /* fondo oscuro para consistencia */
+            border: 1px solid #444;
         }
         .card-body {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
+        .card-title {
+            color: #ffffff;
+            font-size: 1.25rem;
+            letter-spacing: 0.05em;
+        }
+        .card-text {
+            color: #ccc;
+        }
         .card-img-top {
             height: 200px;
             object-fit: cover;
         }
 
-        /* Para dispositivos móviles: mostrar menú sin colapsar */
+        /* Menú en dispositivos móviles */
         @media (max-width: 767.98px) {
             .navbar-collapse {
                 display: flex !important;
@@ -34,15 +68,8 @@
             .navbar-toggler {
                 display: none !important;
             }
-        }
-
-        /* Reducir tamaño de título en pantallas pequeñas */
-        .portfolio-title {
-            font-size: 3rem; /* tamaño de fuente general */
-        }
-        @media (max-width: 576px) {
             .portfolio-title {
-                font-size: 2.5rem; /* reducir solo en pantallas pequeñas */
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -76,7 +103,7 @@
 <div class="jumbotron bg-transparent mb-0" style="padding-bottom: 0;">
     <div class="container">
         <h1 class="display-2 portfolio-title">Portfolio<span class="vim-caret">/</span></h1>
-        <div class="lead mb-3 text-mono text-success">HTB::Auditorias::Python</div>
+        <div class="lead mb-3 text-mono">HTB::Auditorias::Python</div>
     </div>
 </div>
 
@@ -147,8 +174,4 @@
 <!-- Optional JavaScript -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-</body>
-</html>
-
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6Vr
