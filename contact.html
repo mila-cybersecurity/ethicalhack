@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/bootstrap4-neon-glow.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
-    
+
     <style>
         /* Para dispositivos móviles: mostrar menú sin colapsar */
         @media (max-width: 767.98px) {
@@ -23,10 +23,13 @@
             }
         }
 
-        /* Ajustar tamaño de fuente para el título "Contacto" en pantallas móviles */
-        @media (max-width: 767.98px) {
-            .jumbotron h1.display-2 {
-                font-size: 2.5rem; /* Tamaño ajustado para móviles */
+        /* Estilos de título para Contacto, igual que en Portfolio */
+        .portfolio-title {
+            font-size: 3rem;
+        }
+        @media (max-width: 576px) {
+            .portfolio-title {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -36,7 +39,6 @@
 <div class="navbar-dark text-white">
     <div class="container">
         <nav class="navbar px-0 navbar-expand-lg navbar-dark">
-            <!-- Eliminar botón navbar-toggler -->
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
@@ -60,8 +62,8 @@
 <!-- Sección Jumbotron -->
 <div class="jumbotron bg-transparent mb-0">
     <div class="container">
-        <h1 class="display-2">Contacto<span class="vim-caret">/</span></h1> 
-        <div class="lead mb-3 text-mono text-success">Email::()</div> 
+        <h1 class="display-2 portfolio-title">Contacto<span class="vim-caret">/</span></h1>
+        <div class="lead mb-3 text-mono text-success">Email::()</div>
     </div>
 </div>
 
