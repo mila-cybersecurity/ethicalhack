@@ -82,32 +82,32 @@
                     </ul>
                 </div>
                 <div class="card-body">
-                    <h4 class="card-title text-grey text-spacey">Todo sobre IDORs: Insecure Direct Object Reference </h4>
-                    <p class="card-text">
-                        Las Referencias Directas Inseguras a Objetos (IDOR) son una vulnerabilidad crítica en el ámbito de la seguridad informática. Ocurren cuando una aplicación web permite a los usuarios acceder a objetos directamente mediante parámetros que pueden ser manipulados. En este artículo, exploraremos en profundidad qué son las IDORs, su historia, impacto, cómo los ciberdelincuentes pueden explotarlas, ejemplos prácticos, técnicas para encontrarlas y medidas de mitigación que se pueden implementar para asegurar las aplicaciones web.
-                    </p>
+                    <p class="mt-4 text-grey" style="font-weight: bold;">Todo sobre IDORs: Insecure Direct Object Reference </p>
+                    <h4 class="card-title text-grey text-spacey">
+                        Insecure Direct Object Reference (IDOR) son una vulnerabilidad crítica en el ámbito de la seguridad informática. Ocurren cuando una aplicación web permite a los usuarios acceder a objetos directamente mediante parámetros que pueden ser manipulados. En este artículo, exploraremos en profundidad qué son las IDORs, su historia, impacto, cómo los ciberdelincuentes pueden explotarlas, ejemplos prácticos, técnicas para encontrarlas y medidas de mitigación que se pueden implementar para asegurar las aplicaciones web.
+                    </h4>
                     
-                    <h5 class="mt-4">¿Qué son las IDOR?</h5>
-                    <p>
+                    <p class="mt-4 text-grey" style="font-weight: bold;">¿Qué son las IDOR?</p>
+                    <h4 class="card-title text-grey text-spacey">
                         Las IDORs se producen cuando una aplicación web utiliza identificadores de objetos proporcionados por el usuario sin realizar una adecuada validación de permisos. Esto permite a los atacantes modificar los parámetros en las solicitudes para acceder a recursos no autorizados. Esta vulnerabilidad es un tipo de control de acceso inadecuado y puede llevar a la exposición de datos sensibles o a la realización de acciones no autorizadas en nombre de otros usuarios.
-                    </p>
+                    </h4>
 
-                    <h5 class="mt-4">Historia y Descubrimiento</h5>
-                    <p>
+                    <p class="mt-4 text-grey" style="font-weight: bold;">Historia y Descubrimiento</p>
+                    <h4 class="card-title text-grey text-spacey">
                         El término IDOR comenzó a ganar popularidad a mediados de la década de 2000, especialmente después de su inclusión en el <strong>Top Ten de OWASP</strong> en 2007. A medida que las aplicaciones web comenzaron a utilizar más identificadores en las URL y los formularios, se hicieron evidentes los riesgos asociados con la falta de controles de acceso adecuados. Aunque ha habido esfuerzos para abordar esta vulnerabilidad, sigue siendo un problema común en muchas aplicaciones web.
-                    </p>
+                    </h4>
 
-                    <h5 class="mt-4">Impacto de las IDOR</h5>
-                    <p>
+                    <p class="mt-4 text-grey" style="font-weight: bold;">Impacto de las IDOR</p>
+                    <h4 class="card-title text-grey text-spacey">
                         Las IDORs pueden tener repercusiones graves tanto para los usuarios como para las organizaciones. Algunas de las consecuencias más comunes incluyen:
-                    </p>
+                    </h4>
                     <ul>
                         <li><strong>Exposición de Datos Sensibles:</strong> Los atacantes pueden acceder a información personal identificable (PII), registros médicos, información financiera y más.</li>
                         <li><strong>Pérdida de Confianza:</strong> Si un usuario se entera de que su información ha sido comprometida, puede perder la confianza en la organización, lo que puede afectar la reputación de la empresa.</li>
                         <li><strong>Consecuencias Legales:</strong> Las violaciones de datos pueden llevar a acciones legales y multas significativas, especialmente si se trata de información regulada.</li>
                     </ul>
 
-                    <h5 class="mt-4">Ejemplos de IDOR</h5>
+                    <p class="mt-4 text-grey" style="font-weight: bold;">Ejemplos de IDOR</p>
                     <ol>
                         <li><strong>Acceso a Cuentas de Clientes:</strong>
                             <div class="card bg-primary text-white mb-3 text-center mt-4">
@@ -155,16 +155,16 @@
                         </li>
                     </ol>
 
-                    <h5 class="mt-4">Técnicas para Encontrar IDORs</h5>
-                    <p>Los probadores de penetración pueden utilizar diversas técnicas para identificar IDORs, incluyendo:</p>
+                    <p class="mt-4 text-grey" style="font-weight: bold;">Técnicas para Encontrar IDORs</p>
+                    <h4 class="card-title text-grey text-spacey">Los probadores de penetración pueden utilizar diversas técnicas para identificar IDORs, incluyendo:</h4>
                     <ul>
                         <li><strong>Enumeración de Parámetros:</strong> Modificar sistemáticamente los parámetros en las solicitudes para ver si se puede acceder a datos no autorizados.</li>
                         <li><strong>Pruebas de Acceso:</strong> Intentar acceder a diferentes objetos cambiando los identificadores en la URL.</li>
                         <li><strong>Automatización:</strong> Utilizar herramientas de escaneo de seguridad que identifiquen vulnerabilidades de IDOR.</li>
                     </ul>
 
-                    <h5 class="mt-4">Mitigación de IDORs</h5>
-                    <p>Para proteger las aplicaciones contra IDORs, se deben implementar las siguientes medidas:</p>
+                    <p class="mt-4 text-grey" style="font-weight: bold;">Mitigación de IDORs</p>
+                    <h4 class="card-title text-grey text-spacey">Para proteger las aplicaciones contra IDORs, se deben implementar las siguientes medidas:</p>
                     <ul>
                         <li><strong>Control de Acceso Adecuado:</strong> Verificar que los usuarios tengan permiso para acceder a los objetos solicitados.</li>
                         <li><strong>Uso de Identificadores Aleatorios:</strong> Evitar el uso de identificadores predecibles y utilizar identificadores aleatorios o hash.</li>
