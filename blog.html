@@ -32,13 +32,13 @@
 
         /* Eliminar el margen inferior de la clase lead */
         .jumbotron .lead {
-            margin-bottom: 0; /* Esto elimina el espacio extra */
+            margin-bottom: 0; /* Esto elimina el espacio extra solo en la parte inferior */
         }
 
-        /* Eliminar el padding superior e inferior de la jumbotron */
+        /* Mantener padding superior e inferior de la jumbotron */
         .jumbotron {
-            padding-top: 0; /* Sin espacio superior */
-            padding-bottom: 0; /* Sin espacio inferior */
+            padding-top: 2rem; /* Mantener espacio en la parte superior */
+            padding-bottom: 0; /* Eliminar espacio en la parte inferior */
         }
 
         /* Eliminar el padding de la clase container dentro del jumbotron */
@@ -76,7 +76,7 @@
 <div class="jumbotron bg-transparent mb-0">
     <div class="container">
         <h1 class="display-2">Blog<span class="vim-caret">/</span></h1> 
-        <div class="lead text-mono text-success">IDOR::SQLi::XSS</div> 
+        <div class="lead mb-3 text-mono text-success">IDOR::SQLi::XSS</div> 
     </div>
 </div>
 
@@ -122,4 +122,3 @@
 
 </body>
 </html>
-
