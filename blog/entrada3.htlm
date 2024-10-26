@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título de la Entrada 1</title>
+    <link rel="stylesheet" href="css/bootstrap4-neon-glow.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar-dark text-white">
+    <div class="container">
+        <nav class="navbar px-0 navbar-expand-lg navbar-dark">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../portfolio.html">Portafolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../contact.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="container py-5">
+    <h1>Título de la Entrada 1</h1>
+    <p>Contenido de la entrada de blog 1. Aquí puedes escribir lo que desees sobre el tema tratado.</p>
+    <p>Agrega más detalles, imágenes, enlaces, etc.</p>
+</div>
+
+</body>
+</html>
