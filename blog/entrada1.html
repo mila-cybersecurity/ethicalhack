@@ -29,18 +29,6 @@
                 font-size: 2.5rem; /* Adjusted size for mobile */
             }
         }
-
-        /* Full-width card for main content */
-        .full-width-card {
-            width: 100%;
-            border: none; /* No border for a full-width look */
-            margin-top: 20px; /* Space between the jumbotron and the card */
-        }
-
-        /* Small card for examples */
-        .example-card {
-            margin-top: 20px; /* Space above examples */
-        }
     </style>
 </head>
 <body>
@@ -78,71 +66,125 @@
 
 <div class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card text-center full-width-card">
+        <div class="col-md-8">
+            <div class="card text-center">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#!">/</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!">Links</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#!"></a>
+                        </li>
+                    </ul>
+                </div>
                 <div class="card-body">
-                    <h4 class="card-title">Todo sobre IDORs: Insecure Direct Object Reference </h4>
+                    <h4 class="card-title text-grey text-spacey">Todo sobre IDORs: Insecure Direct Object Reference </h4>
                     <p class="card-text">
                         Las Referencias Directas Inseguras a Objetos (IDOR) son una vulnerabilidad crítica en el ámbito de la seguridad informática. Ocurren cuando una aplicación web permite a los usuarios acceder a objetos directamente mediante parámetros que pueden ser manipulados. En este artículo, exploraremos en profundidad qué son las IDORs, su historia, impacto, cómo los ciberdelincuentes pueden explotarlas, ejemplos prácticos, técnicas para encontrarlas y medidas de mitigación que se pueden implementar para asegurar las aplicaciones web.
                     </p>
-                    <!-- Resto del contenido omitido para mayor claridad, agrega aquí el contenido restante -->
+                    
+                    <h5 class="mt-4">¿Qué son las IDOR?</h5>
+                    <p>
+                        Las IDORs se producen cuando una aplicación web utiliza identificadores de objetos proporcionados por el usuario sin realizar una adecuada validación de permisos. Esto permite a los atacantes modificar los parámetros en las solicitudes para acceder a recursos no autorizados. Esta vulnerabilidad es un tipo de control de acceso inadecuado y puede llevar a la exposición de datos sensibles o a la realización de acciones no autorizadas en nombre de otros usuarios.
+                    </p>
+
+                    <h5 class="mt-4">Historia y Descubrimiento</h5>
+                    <p>
+                        El término IDOR comenzó a ganar popularidad a mediados de la década de 2000, especialmente después de su inclusión en el <strong>Top Ten de OWASP</strong> en 2007. A medida que las aplicaciones web comenzaron a utilizar más identificadores en las URL y los formularios, se hicieron evidentes los riesgos asociados con la falta de controles de acceso adecuados. Aunque ha habido esfuerzos para abordar esta vulnerabilidad, sigue siendo un problema común en muchas aplicaciones web.
+                    </p>
+
+                    <h5 class="mt-4">Impacto de las IDOR</h5>
+                    <p>
+                        Las IDORs pueden tener repercusiones graves tanto para los usuarios como para las organizaciones. Algunas de las consecuencias más comunes incluyen:
+                    </p>
+                    <ul>
+                        <li><strong>Exposición de Datos Sensibles:</strong> Los atacantes pueden acceder a información personal identificable (PII), registros médicos, información financiera y más.</li>
+                        <li><strong>Pérdida de Confianza:</strong> Si un usuario se entera de que su información ha sido comprometida, puede perder la confianza en la organización, lo que puede afectar la reputación de la empresa.</li>
+                        <li><strong>Consecuencias Legales:</strong> Las violaciones de datos pueden llevar a acciones legales y multas significativas, especialmente si se trata de información regulada.</li>
+                    </ul>
 
                     <h5 class="mt-4">Ejemplos de IDOR</h5>
-                    <div class="example-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <h6 class="card-title"><strong>Acceso a Cuentas de Clientes:</strong></h6>
-                                <p>Imagina un sitio web donde los usuarios pueden acceder a sus cuentas mediante la siguiente URL:</p>
-                                <pre><code>https://example.com/account?user_id=1001</code></pre>
-                                <p>Si un atacante cambia el parámetro <code>user_id</code> a <code>1002</code>, podría acceder a la cuenta de otro usuario sin tener permiso.</p>
+                    <ol>
+                        <li><strong>Acceso a Cuentas de Clientes:</strong>
+                            <div class="card bg-primary text-white mb-3 text-center mt-4">
+                                <div class="card-body">
+                                    <blockquote class="card-blockquote">
+                                        <p>Imagina un sitio web donde los usuarios pueden acceder a sus cuentas mediante la siguiente URL:</p>
+                                        <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/account?user_id=1001</p>
+                                        <p>Si un atacante cambia el parámetro <code>user_id</code> a <code>1002</code>, podría acceder a la cuenta de otro usuario sin tener permiso.</p>
+                                    </blockquote>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="example-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <h6 class="card-title"><strong>Descarga de Archivos:</strong></h6>
-                                <p>Considere una URL que permite a los usuarios descargar archivos de su cuenta:</p>
-                                <pre><code>https://example.com/download?file_id=1234</code></pre>
-                                <p>Un atacante podría modificar <code>file_id</code> a otro número para descargar archivos que no le pertenecen.</p>
+                        </li>
+                        <li><strong>Descarga de Archivos:</strong>
+                            <div class="card bg-primary text-white mb-3 text-center mt-4">
+                                <div class="card-body">
+                                    <blockquote class="card-blockquote">
+                                        <p>Considere una URL que permite a los usuarios descargar archivos de su cuenta:</p>
+                                        <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/download?file_id=1234</p>
+                                        <p>Un atacante podría modificar <code>file_id</code> a otro número para descargar archivos que no le pertenecen.</p>
+                                    </blockquote>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="example-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <h6 class="card-title"><strong>Información de Pedido:</strong></h6>
-                                <p>En una tienda en línea, un usuario puede ver su historial de pedidos con la siguiente URL:</p>
-                                <pre><code>https://example.com/orders?order_id=5678</code></pre>
-                                <p>Si no hay controles adecuados, un atacante podría acceder a los pedidos de otros usuarios simplemente cambiando el <code>order_id</code>.</p>
+                        </li>
+                        <li><strong>Información de Pedido:</strong>
+                            <div class="card bg-primary text-white mb-3 text-center mt-4">
+                                <div class="card-body">
+                                    <blockquote class="card-blockquote">
+                                        <p>En una tienda en línea, un usuario puede ver su historial de pedidos con la siguiente URL:</p>
+                                        <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/orders?order_id=5678</p>
+                                        <p>Si no hay controles adecuados, un atacante podría acceder a los pedidos de otros usuarios simplemente cambiando el <code>order_id</code>.</p>
+                                    </blockquote>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="example-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <h6 class="card-title"><strong>Acceso a Mensajes Privados:</strong></h6>
-                                <p>Una aplicación de mensajería que almacena mensajes con un ID en la URL:</p>
-                                <pre><code>https://example.com/messages?msg_id=4321</code></pre>
-                                <p>Un atacante podría manipular el <code>msg_id</code> para acceder a los mensajes de otros usuarios.</p>
+                        </li>
+                        <li><strong>Acceso a Mensajes Privados:</strong>
+                            <div class="card bg-primary text-white mb-3 text-center mt-4">
+                                <div class="card-body">
+                                    <blockquote class="card-blockquote">
+                                        <p>Una aplicación de mensajería que almacena mensajes con un ID en la URL:</p>
+                                        <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/messages?message_id=9999</p>
+                                        <p>Un atacante podría acceder a mensajes de otros usuarios cambiando el <code>message_id</code>.</p>
+                                    </blockquote>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </li>
+                    </ol>
 
-                    <a href="../blog.html" class="btn btn-primary">Volver</a> <!-- Cambiado a "Volver" -->
+                    <h5 class="mt-4">Técnicas para Encontrar IDORs</h5>
+                    <p>Los probadores de penetración pueden utilizar diversas técnicas para identificar IDORs, incluyendo:</p>
+                    <ul>
+                        <li><strong>Enumeración de Parámetros:</strong> Modificar sistemáticamente los parámetros en las solicitudes para ver si se puede acceder a datos no autorizados.</li>
+                        <li><strong>Pruebas de Acceso:</strong> Intentar acceder a diferentes objetos cambiando los identificadores en la URL.</li>
+                        <li><strong>Automatización:</strong> Utilizar herramientas de escaneo de seguridad que identifiquen vulnerabilidades de IDOR.</li>
+                    </ul>
+
+                    <h5 class="mt-4">Mitigación de IDORs</h5>
+                    <p>Para proteger las aplicaciones contra IDORs, se deben implementar las siguientes medidas:</p>
+                    <ul>
+                        <li><strong>Control de Acceso Adecuado:</strong> Verificar que los usuarios tengan permiso para acceder a los objetos solicitados.</li>
+                        <li><strong>Uso de Identificadores Aleatorios:</strong> Evitar el uso de identificadores predecibles y utilizar identificadores aleatorios o hash.</li>
+                        <li><strong>Validación y Saneamiento de Datos:</strong> Validar y limpiar todos los parámetros de entrada proporcionados por el usuario.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Optional JavaScript -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4f86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<footer class="footer bg-dark text-white text-center py-3">
+    <div class="container">
+        <span class="text-muted">© 2024 Tu Nombre. Todos los derechos reservados.</span>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdzA3e4e8PZf3D02L+P4J3np+3g5/4uAEER2Uj8Kh5v1bh/v19e93zW3FXc3L1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-11j9M8O3F/TLm0q09T1QkMj0G7v5fsWj5S5AvFGIC4hDOW9AmqkHUpV16w/+v7eSz" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pyYY3T8F0uNE6wPfs2bU8+aKuvUUl/Wp6AWqU7t9bF4lt34H04bQ9Gm4hI4SR7u5" crossorigin="anonymous"></script>
 
 </body>
 </html>
