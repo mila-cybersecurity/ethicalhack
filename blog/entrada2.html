@@ -184,11 +184,29 @@
                         <li>Implementar un firewall de aplicaciones web.</li>
                     </ul>
 
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Filtrado de Datos:</h4>
+                    <p class="card-title text-grey text-spacey"> Un atacante puede intentar extraer datos sensibles de la base de datos utilizando una inyección SQL. Por ejemplo:</p>
+                    <div class="card border-primary mb-3 text-center">
+                        <div class="card-body">
+                            <p class="mt-4 text-grey" style="font-weight: bold;">1' UNION SELECT username, password FROM users --</p>
+                            <p class="card-title text-grey text-spacey"> Esto permite al atacante combinar resultados de múltiples consultas, revelando información confidencial.</p>
+                        </div>
+                    </div>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Mejores Prácticas para Prevenir SQL Injection</h4>
+                    <p class="card-title text-grey text-spacey"> Para protegerse contra la inyección SQL, las organizaciones pueden implementar las siguientes medidas:</p>
+                    <ul class="card-title text-grey text-spacey">
+                        <li>Validación y Sanitización de Entradas: Asegurarse de que todos los datos de entrada sean válidos y seguros.</li>
+                        <li>Uso de Consultas Preparadas: Las consultas preparadas con parámetros evitan la inyección de código SQL al separar los comandos SQL de los datos.</li>
+                        <li>Control de Acceso: Limitar los privilegios de los usuarios en la base de datos, asegurando que incluso si hay una inyección SQL, el daño sea limitado.</li>
+                    </ul>
+      
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Conclusión</h4>
                     <p class="card-title text-grey text-spacey"> SQL Injection es una amenaza grave que puede comprometer la integridad y la confidencialidad de los datos. Es fundamental que las organizaciones comprendan cómo funciona SQLi y apliquen las mejores prácticas de seguridad para proteger sus aplicaciones web.</p>
                     
-                    <!-- Botón Volver -->
-                    <a href="../index.html" class="btn btn-volver">Volver</a> <!-- Ajustar la ruta -->
+                   <a href="../blog.html" class="btn btn-primary mt-4">Volver</a> <!-- Ajustar la ruta -->
+                  </div> <!-- Cierre del div añadido -->
+            
                 </div>
             </div>
         </div>
