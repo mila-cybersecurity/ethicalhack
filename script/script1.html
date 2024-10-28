@@ -24,7 +24,7 @@
             }
         }
 
-        /* Adjust font size for the "Detección de Inicio de Sesión Sospechoso" title on mobile screens */
+        /* Adjust font size for the title on mobile screens */
         @media (max-width: 767.98px) {
             .jumbotron h1.display-2 {
                 font-size: 2.5rem; /* Adjusted size for mobile */
@@ -97,7 +97,7 @@
 <div class="jumbotron bg-transparent mb-0">
     <div class="container">
         <h1 class="display-2">Detección de Inicio de Sesión Sospechoso</h1> <!-- Título actualizado -->
-        <div class="lead mb-3 text-mono text-success">Verificación de intentos de inicio de sesión</div> <!-- Texto adicional -->
+        <div class="lead mb-3 text-mono text-success">Verificación de intentos fallidos de inicio de sesión</div> <!-- Texto adicional -->
     </div>
 </div>
 
@@ -109,46 +109,61 @@
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/">/</a>
+                            <a class="nav-link active" href="#!">/</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#!">Links</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#!"></a>
+                        </li>
                     </ul>
                 </div>
                 <div class="card-body">
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Detección de Inicio de Sesión Sospechoso</h4>
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">¿Qué es la Detección de Inicio de Sesión Sospechoso?</h4>
                     <p class="card-title text-grey text-spacey">
-                        Este sistema verifica si un usuario ha realizado tres o más intentos fallidos de inicio de sesión.
+                        La detección de inicio de sesión sospechoso es un sistema de seguridad diseñado para monitorear y verificar los intentos de inicio de sesión de los usuarios en una aplicación. Este sistema se activa cuando un usuario realiza tres o más intentos fallidos de inicio de sesión en un corto período de tiempo.
+                    </p>
+                    <p class="card-title text-grey text-spacey">
+                        La importancia de esta detección radica en su capacidad para identificar posibles ataques de fuerza bruta, donde un atacante intenta adivinar la contraseña de un usuario al hacer múltiples intentos de acceso. Al detectar estos patrones sospechosos, el sistema puede tomar medidas adicionales, como bloquear la cuenta temporalmente o enviar alertas al usuario y a los administradores del sistema.
+                    </p>
+                    <p class="card-title text-grey text-spacey">
+                        Además, esta técnica puede ayudar a prevenir el acceso no autorizado a datos sensibles y a proteger la integridad de la información de los usuarios. Implementar esta función no solo aumenta la seguridad, sino que también mejora la confianza de los usuarios en la plataforma.
                     </p>
 
-                    <pre><code>
-# Código de detección de inicio de sesión
-with open("usuarios_inicio_sesion.txt", "r", encoding="utf8") as archivo:
-    archivo_texto = archivo.read()
-nombres_usuarios = archivo_texto.split()
-
-def verificar_inicio_sesion(lista_inicios, usuario_actual):
-    if usuario_actual in lista_inicios:
-        contador = 0
-        for i in lista_inicios:
-            if i == usuario_actual:
-                contador += 1
-        if contador >= 3:
-            return "Haz hecho 3 o más intentos de inicio de sesión. Tu cuenta ha sido bloqueada"
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Ejemplo de Detección de Inicio de Sesión Sospechoso</h4>
+                    <p class="card-title text-grey text-spacey">
+                        A continuación, se muestra un ejemplo de cómo se puede implementar esta detección en Python:
+                    </p>
+                    <div class="card border-primary mb-3 text-center">
+                        <div class="card-body">
+                            <p class="mt-4 text-grey" style="font-weight: bold;">Código de Ejemplo en Python:</p>
+                            <pre><code>
+def verificar_inicio_sesion(usuario, contrasena):
+    intentos_fallidos = 0
+    max_intentos = 3
+    
+    while intentos_fallidos < max_intentos:
+        if autenticar(usuario, contrasena):
+            print("Inicio de sesión exitoso")
+            return True
         else:
-            return "Estás logueado"
-    else:
-        return "Usuario inexistente"
+            print("Inicio de sesión fallido")
+            intentos_fallidos += 1
 
-# Verificar inicio de sesión de un usuario específico
-print(verificar_inicio_sesion(nombres_usuarios, "López"))
-                    </code></pre>
+    print("Demasiados intentos fallidos. Por favor, intente más tarde.")
+    return False
+                            </code></pre>
+                            <p class="card-title text-grey text-spacey">Este código simple verifica los intentos de inicio de sesión y bloquea al usuario si supera el número máximo de intentos fallidos.</p>
+                        </div>
+                    </div>
 
-                 <div class="text-center"> <!-- Se añadió esta línea para centrar el botón -->
-                  <a href="../portfolio.html" class="btn btn-primary mt-4">Volver</a> <!-- Ajustar la ruta -->
-                  </div> <!-- Cierre del div añadido -->
-            
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Conclusión</h4>
+                    <p class="card-title text-grey text-spacey">La detección de inicio de sesión sospechoso es una medida esencial en la seguridad informática. Ayuda a prevenir ataques y proteger los datos de los usuarios, asegurando una experiencia de usuario más segura.</p>
+                    
+                    <div class="text-center"> <!-- Se añadió esta línea para centrar el botón -->
+                        <a href="../blog.html" class="btn btn-primary mt-4">Volver</a> <!-- Ajustar la ruta -->
+                    </div> <!-- Cierre del div añadido -->
                 </div>
             </div>
         </div>
@@ -156,7 +171,6 @@ print(verificar_inicio_sesion(nombres_usuarios, "López"))
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT9T3T5sZ5/6L5h8L1owwKxQCh10fVu5a/vo0G2y0PTcQeyzQ6U" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-JjSmul/8d4e1IPT+Wl+k5zlfzB5z3ou3rE88uY6K9cKX5a8B3/mAO+Qd7p1wqR8E" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-C8LJ24LGAxTg1xSyH3M72d8D8l6q7H5x6eB5W07qF1u9yKmfXuwlf/l9pNde0v1g" crossorigin="anonymous"></script>
-
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-5aBd5D7t7L8/ZPC/UgLWx0BLF1pFSkzY9lE42WFe9OImG2D1m2C9VekYlFf6dYwF" crossorigin="anonymous"></script>
 </body>
 </html>
