@@ -41,12 +41,6 @@
         .text-grey {
             font-size: 0.9rem; /* Smaller text for body content */
         }
-
-        /* Styling for code and URLs */
-        code {
-            color: #007bff; /* Blue color for code elements */
-            font-weight: bold; /* Bold font for emphasis */
-        }
         
         /* Full width card */
         .card {
@@ -66,6 +60,18 @@
         body {
             height: auto; /* Let the body take the height based on content */
             margin: 0; /* Remove default margin */
+        }
+
+        /* Style for examples */
+        .example-card {
+            border: 1px solid #007bff; /* Border color matching the code color */
+            background-color: #f8f9fa; /* Light background for readability */
+            margin: 10px 0; /* Margin for spacing */
+        }
+
+        .example-card p {
+            color: #007bff; /* Color for code-like examples */
+            font-weight: bold; /* Bold for emphasis */
         }
     </style>
 </head>
@@ -147,31 +153,44 @@
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Ejemplos de IDOR</h4>
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Acceso a Cuentas de Clientes:</h4>
                     <p class="card-title text-grey text-spacey"> Imagina un sitio web donde los usuarios pueden acceder a sus cuentas mediante la siguiente URL:</p>
-                    <pre><code class="bash">https://example.com/account?user_id=1001</code></pre>
-                    <p class="card-title text-grey text-spacey"> Si un atacante cambia el parámetro <code>user_id</code> a <code>1002</code>, podría acceder a la cuenta de otro usuario sin tener permiso.</p>
-                    
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Descarga de Facturas:</h4>
-                    <p class="card-title text-grey text-spacey"> Supongamos que un sistema de facturación permite a los usuarios descargar sus facturas:</p>
-                    <pre><code class="bash">https://example.com/invoice/download?invoice_id=2001</code></pre>
-                    <p class="card-title text-grey text-spacey"> Cambiando el <code>invoice_id</code> a un número que pertenece a otra factura, el atacante puede descargar información sensible de otro usuario.</p>
+                    <div class="example-card">
+                        <p class="mt-4">https://example.com/account?user_id=<code>1001</code></p>
+                    </div>
+                    <p class="card-title text-grey text-spacey"> Si un atacante cambia el parámetro <code>user_id</code> a <code>1002</code>, podría acceder a la cuenta de otro usuario.</p>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Descarga de Archivos Sensibles:</h4>
+                    <p class="card-title text-grey text-spacey"> En un sitio web donde los usuarios pueden descargar archivos de sus cuentas, la URL puede verse así:</p>
+                    <div class="example-card">
+                        <p class="mt-4">https://example.com/download?file_id=<code>12345</code></p>
+                    </div>
+                    <p class="card-title text-grey text-spacey"> Un atacante puede modificar el <code>file_id</code> para intentar acceder a archivos que no les pertenecen.</p>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Manipulación de Recursos Internos:</h4>
+                    <p class="card-title text-grey text-spacey"> Si un sistema utiliza identificadores para acceder a recursos internos, como:</p>
+                    <div class="example-card">
+                        <p class="mt-4">https://example.com/resource?id=<code>abcd1234</code></p>
+                    </div>
+                    <p class="card-title text-grey text-spacey"> Cambiar el <code>id</code> podría permitir al atacante acceder a recursos no autorizados.</p>
 
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Técnicas para Encontrar IDOR</h4>
-                    <p class="card-title text-grey text-spacey"> La identificación de IDORs puede requerir tanto habilidades técnicas como un enfoque metódico. Algunas técnicas útiles incluyen:</p>
-                    <p class="card-title text-grey text-spacey"> Análisis de la URL: Observar los parámetros en las URLs puede revelar patrones que sugieren la posibilidad de IDOR.</p>
-                    <p class="card-title text-grey text-spacey">Pruebas de fuerza bruta: Probar diferentes identificadores o valores en los parámetros puede ayudar a descubrir vulnerabilidades.</p>
-                    <p class="card-title text-grey text-spacey">Revisar la documentación: Revisar la documentación de la API o de la aplicación puede dar pistas sobre cómo funcionan los permisos y la autorización.</p>
+                    <p class="card-title text-grey text-spacey"> Existen diversas técnicas que los testers de seguridad pueden utilizar para identificar IDORs:</p>
+                    <ul class="text-grey text-spacey">
+                        <li> **Enumeración de Parámetros:** Se puede utilizar herramientas automatizadas para enumerar todos los parámetros en las solicitudes y modificarlos.</li>
+                        <li> **Análisis de Respuestas:** Observar las respuestas del servidor al modificar parámetros puede revelar si hay vulnerabilidades.</li>
+                        <li> **Pruebas Manuales:** Los testers pueden modificar manualmente los parámetros en una aplicación para observar su comportamiento.</li>
+                    </ul>
 
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Medidas de Mitigación</h4>
-                    <p class="card-title text-grey text-spacey"> Para protegerse contra IDORs, es crucial implementar controles de acceso adecuados:</p>
-                    <p class="card-title text-grey text-spacey">Validación de Permisos: Asegúrese de que los usuarios solo puedan acceder a los recursos que están autorizados a ver.</p>
-                    <p class="card-title text-grey text-spacey">Obfuscación de Identificadores: Utilizar identificadores que no sean fácilmente manipulables por los usuarios.</p>
-                    <p class="card-title text-grey text-spacey">Pruebas de Seguridad: Realizar pruebas de seguridad periódicas para identificar y corregir vulnerabilidades antes de que puedan ser explotadas.</p>
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Mitigación de IDOR</h4>
+                    <p class="card-title text-grey text-spacey"> La mitigación de IDOR implica implementar controles de acceso adecuados:</p>
+                    <ul class="text-grey text-spacey">
+                        <li> **Validación de Permisos:** Verificar que el usuario tenga permiso para acceder al objeto solicitado.</li>
+                        <li> **Uso de Identificadores Aleatorios:** Evitar el uso de identificadores predecibles y utilizar identificadores únicos generados aleatoriamente.</li>
+                        <li> **Auditorías de Seguridad:** Realizar auditorías regulares para identificar y corregir posibles vulnerabilidades.</li>
+                    </ul>
 
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Conclusiones</h4>
-                    <p class="card-title text-grey text-spacey">Las IDORs son una vulnerabilidad crítica que puede ser explotada por ciberdelincuentes para acceder a información sensible. Con la implementación de prácticas de codificación seguras y una revisión periódica de la seguridad, es posible mitigar este riesgo y proteger tanto a los usuarios como a las organizaciones. A medida que el panorama de la seguridad sigue evolucionando, es fundamental mantenerse informado y actualizado sobre las mejores prácticas para protegerse contra IDORs y otras amenazas.</p>
-                    
-                    <!-- Botón de Volver -->
-                    <a href="../blog.html" class="btn btn-primary mt-4">Volver</a> <!-- Ajustar la ruta -->
+                    <p class="card-title text-grey text-spacey"> Las IDORs son una vulnerabilidad crítica que debe ser abordada para proteger tanto a los usuarios como a las organizaciones. Implementar controles adecuados puede reducir el riesgo de explotación y proteger la información sensible de los usuarios.</p>
+                    <p class="card-title text-grey text-spacey"> La concienciación y la formación continua en seguridad son esenciales para prevenir este tipo de vulnerabilidades en las aplicaciones web.</p>
                 </div>
             </div>
         </div>
@@ -179,10 +198,8 @@
 </div>
 
 <!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7zI3mJ1eF4l1/6e+2wLx6WlX2z5n5n6GRX2yy8W6ek7q2h/j" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-JZ45Spejh4U02d8j6ZcV/a7N3j+6ST3lL3/eUu3I0O8x0hxHkjw4x4Fku+4xg2X" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-1CmrxMRARb6a6I87n9NnP4i7grxIOW8tTwT0gEq6a3r88U2gZxDANn9/+6EXs4U5" crossorigin="anonymous"></script>
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rTg8bWkFfDE1WRj4F35oO5W76D5OU8Cx5S9ZTjZ5nRyYh7l4e5E" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-JrM3TPp60b77xWZ5zWj3GJ+H/c/jbVxnJp4B6r4Gv4V7q5OC8xh7RVGzzGeZ4e0m" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-1CmrxMRARb6aN2k4jQmyM8c2b8E5/68N0M9+3bP5o+74fs9K6wM6XfN5jlRj7e7e" crossorigin="anonymous"></script>
 </body>
 </html>
