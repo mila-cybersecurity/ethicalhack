@@ -102,7 +102,7 @@
 </div>
 
 <!-- Main content area -->
-<div class="container">
+ <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card text-center">
@@ -117,96 +117,115 @@
                     </ul>
                 </div>
                 <div class="card-body">
-                    <div id="info" class="tab-content">
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">¿Qué es XSS?</h4>
-                        <p class="card-title text-grey text-spacey">
-                            Cross-Site Scripting (XSS) es una vulnerabilidad de seguridad en aplicaciones web que permite a los atacantes inyectar scripts maliciosos en las páginas vistas por otros usuarios. Esta técnica se utiliza para robar información sensible, como cookies de sesión, credenciales o incluso para redirigir a los usuarios a sitios maliciosos.
-                        </p>
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">¿Qué es XSS?</h4>
+                    <p class="card-title text-grey text-spacey">
+                        Cross-Site Scripting (XSS) es una vulnerabilidad de seguridad en aplicaciones web que permite a los atacantes inyectar scripts maliciosos en las páginas vistas por otros usuarios. Esta técnica se utiliza para robar información sensible, como cookies de sesión, credenciales o incluso para redirigir a los usuarios a sitios maliciosos.
+                    </p>
 
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Historia y Descubrimiento</h4>
-                        <p class="card-title text-grey text-spacey">
-                            XSS ha sido un problema conocido desde los primeros días de la web. Se hizo evidente a medida que las aplicaciones web comenzaron a permitir la interacción del usuario, especialmente en foros y aplicaciones de redes sociales. La vulnerabilidad fue documentada por primera vez a principios de la década de 2000 y ha sido incluida en el <strong>Top Ten de OWASP</strong> desde entonces.
-                        </p>
-                        <p class="text-grey text-spacey">
-                            Para obtener más información, puedes visitar los siguientes enlaces:
-                        </p>
-                        <ul class="text-grey text-spacey">
-                            <li><a href="https://owasp.org/www-project-top-ten/" target="_blank">OWASP Top Ten</a> - Información sobre las vulnerabilidades más críticas en aplicaciones web.</li>
-                            <li><a href="https://www.acs.com.hk/en/products/1028/acr38-smart-card-reader/" target="_blank">Vulnerabilidades de XSS en la web</a> - Un análisis detallado sobre las vulnerabilidades XSS.</li>
-                            <li><a href="https://portswigger.net/web-security/cross-site-scripting" target="_blank">PortSwigger - XSS</a> - Recursos y explicaciones sobre XSS y sus tipos.</li>
-                        </ul>
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Historia y Descubrimiento</h4>
+                    <p class="card-title text-grey text-spacey">
+                        XSS ha sido un problema conocido desde los primeros días de la web. Se hizo evidente a medida que las aplicaciones web comenzaron a permitir la interacción del usuario, especialmente en foros y aplicaciones de redes sociales. La vulnerabilidad fue documentada por primera vez a principios de la década de 2000 y ha sido incluida en el <strong>Top Ten de OWASP</strong> desde entonces.
+                    </p>
+                    <p class="text-grey text-spacey">
+                        Para obtener más información, puedes visitar los siguientes enlaces:
+                    </p>
+                    <ul class="text-grey text-spacey">
+                        <li><a href="https://owasp.org/www-project-top-ten/" target="_blank">OWASP Top Ten</a> - Información sobre las vulnerabilidades más críticas en aplicaciones web.</li>
+                        <li><a href="https://www.acs.com.hk/en/products/1028/acr38-smart-card-reader/" target="_blank">Vulnerabilidades de XSS en la web</a> - Un análisis detallado sobre las vulnerabilidades XSS.</li>
+                        <li><a href="https://portswigger.net/web-security/cross-site-scripting" target="_blank">PortSwigger - XSS</a> - Recursos y explicaciones sobre XSS y sus tipos.</li>
+                    </ul>
 
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Impacto de XSS</h4>
-                        <p class="card-title text-grey text-spacey">
-                            Las vulnerabilidades XSS pueden tener graves consecuencias, incluyendo:
-                        </p>
-                        <p class="card-title text-grey text-spacey">1. Robo de información: Los atacantes pueden robar cookies, tokens de sesión y credenciales de usuario.</p>
-                        <p class="card-title text-grey text-spacey">2. Defacement: Modificación no autorizada del contenido de una página web.</p>
-                        <p class="card-title text-grey text-spacey">3. Redirección: Los usuarios pueden ser redirigidos a sitios web maliciosos.</p>
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Impacto de XSS</h4>
+                    <p class="card-title text-grey text-spacey">
+                        Las vulnerabilidades XSS pueden tener graves consecuencias, incluyendo:
+                    </p>
+                    <p class="card-title text-grey text-spacey">1. Robo de información: Los atacantes pueden robar cookies, tokens de sesión y credenciales de usuario.</p>
+                    <p class="card-title text-grey text-spacey">2. Defacement: Modificación no autorizada del contenido de una página web.</p>
+                    <p class="card-title text-grey text-spacey">3. Redirección: Los usuarios pueden ser redirigidos a sitios web maliciosos.</p>
 
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Ejemplos de XSS</h4>
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">1. Ejemplo de XSS Reflejado:</h4>
-                        <p class="card-title text-grey text-spacey">Imagina un sitio web que muestra un mensaje de saludo en función de un parámetro en la URL:</p>
-                        <div class="card border-primary mb-3 text-center">
-                            <div class="card-body">
-                                <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/welcome?name=<code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code></p>
-                                <p class="card-title text-grey text-spacey">El atacante puede inyectar un script que se ejecuta en el navegador del usuario, mostrando un mensaje de alerta.</p>
-                            </div>
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Ejemplos de XSS</h4>
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">1. Ejemplo de XSS Reflejado:</h4>
+                    <p class="card-title text-grey text-spacey">Imagina un sitio web que muestra un mensaje de saludo en función de un parámetro en la URL:</p>
+                    <div class="card border-primary mb-3 text-center">
+                        <div class="card-body">
+                            <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/welcome?name=<code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code></p>
+                            <p class="card-title text-grey text-spacey">El atacante puede inyectar un script que se ejecuta en el navegador del usuario, mostrando un mensaje de alerta.</p>
                         </div>
+                    </div>
 
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">2. Ejemplo de XSS Almacenado:</h4>
-                        <p class="card-title text-grey text-spacey">Un atacante puede inyectar un script en un foro. Cada vez que un usuario visita la página del foro, el script se ejecuta, robando información.</p>
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">2. Ejemplo de XSS Almacenado:</h4>
+                    <p class="card-title text-grey text-spacey">Un atacante publica un comentario en un blog que contiene un script malicioso:</p>
+                    <div class="card border-primary mb-3 text-center">
+                        <div class="card-body">
+                            <p class="mt-4 text-grey" style="font-weight: bold;">Comentario: <code>&lt;script&gt;stealCookies();&lt;/script&gt;</code></p>
+                            <p class="card-title text-grey text-spacey">El script se almacena en la base de datos y se sirve a otros usuarios.</p>
+                        </div>
+                    </div>
+                    
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">XSS DOM-Based:</h4>
+                    <p class="card-title text-grey text-spacey">El ataque se realiza mediante manipulación del Document Object Model (DOM) del navegador.</p>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Prevención de XSS</h4>
+                    <p class="card-title text-grey text-spacey">Las estrategias de prevención incluyen:</p>
+                    <ul class="card-title text-grey text-spacey">
+                        <li><strong>Validación de entrada:</strong> Asegurarse de que los datos de entrada sean válidos y no contengan scripts maliciosos.</li>
+                        <li><strong>Codificación de salida:</strong> Escapar caracteres especiales en el HTML (por ejemplo, <code>&lt;</code> a <code>&amp;lt;</code>).</li>
+                        <li><strong>Uso de CSP:</strong> Content Security Policy (CSP) puede ayudar a mitigar el impacto de XSS al restringir los orígenes de contenido.</li>
+                     </ul>
+                        
                         <div class="btn-container text-center">
                             <a href="../blog.html" class="btn btn-primary">Volver</a> <!-- Botón corregido -->
                         </div>
                     </div>
-                    <!-- Contenido de la pestaña de Links -->
-                    <div id="links" class="tab-content" style="display: none;">
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Links Recomendados</h4>
-                        <ul class="list-unstyled text-grey">
-                            <li><a href="https://owasp.org/www-project-top-ten/" target="_blank">OWASP Top Ten</a> - Lista de las vulnerabilidades más críticas en aplicaciones web.</li>
-                            <li><a href="https://www.w3schools.com/security/security_xss.asp" target="_blank">W3Schools - Seguridad en XSS</a> - Artículo sobre la seguridad relacionada con XSS.</li>
-                            <li><a href="https://www.veracode.com/security/xss" target="_blank">Veracode</a> - Información sobre XSS.</li>
-                            <li><a href="https://learn.snyk.io/lesson/xss/" target="_blank">Snyk</a> - Recursos de Snyk sobre XSS.</li>
-                            <li><a href="https://pentest-tools.com/blog/xss-attacks-practical-scenarios" target="_blank">Pentest-Tools</a> - Escenarios prácticos de ataques XSS.</li>
-                        </ul>
-                        <div class="btn-container text-center">
-                            <a href="../blog.html" class="btn btn-primary">Volver</a> <!-- Botón corregido -->
-                        </div>
-                    </div>
-                </div>
+                     <!-- Contenido de la pestaña de Links -->
+<div id="links" class="tab-content" style="display: none;">
+    <h4 class="mt-4 text-grey" style="font-weight: bold;">Links Recomendados</h4>
+    <ul class="list-unstyled text-grey">
+        <li><a href="https://owasp.org/www-project-top-ten/" target="_blank">OWASP Top Ten</a> - Lista de las vulnerabilidades más críticas en aplicaciones web.</li>
+        <li><a href="https://portswigger.net/web-security/cross-site-scripting" target="_blank">PortSwigger - XSS</a> - Recursos y explicaciones sobre XSS y sus tipos.</li>
+        <li><a href="https://www.acunetix.com/websitesecurity/cross-site-scripting/" target="_blank">Acunetix - Cross-Site Scripting</a> - Información sobre cómo prevenir XSS.</li>
+        <li><a href="https://www.veracode.com/security/cross-site-scripting" target="_blank">Veracode - XSS</a> - Análisis y prevención de ataques XSS.</li>
+        <li><a href="https://www.snyk.io/blog/cross-site-scripting-xss-explained/" target="_blank">Snyk - Cross-Site Scripting Explained</a> - Explicación detallada sobre XSS y su mitigación.</li>
+    </ul>
+    <div class="btn-container text-center">
+        <a href="../blog.html" class="btn btn-primary">Volver</a> <!-- Botón corregido -->
+    </div>
+</div>
+
             </div>
         </div>
     </div>
 </div>
 
-<!-- Scripts -->
+
 <script>
     function showTab(tabName, event) {
-        // Prevent default link behavior
-        event.preventDefault();
-        
-        // Hide all tabs
-        const tabs = document.querySelectorAll('.tab-content');
-        tabs.forEach(tab => {
-            tab.style.display = 'none';
+        // Hide all tab contents
+        var tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(function(content) {
+            content.style.display = 'none';
         });
 
-        // Show the selected tab
+        // Remove active class from all tabs
+        var tabs = document.querySelectorAll('.nav-link');
+        tabs.forEach(function(tab) {
+            tab.classList.remove('active');
+        });
+
+        // Show the selected tab and add active class
         document.getElementById(tabName).style.display = 'block';
-
-        // Update the active link
-        const links = document.querySelectorAll('.nav-link');
-        links.forEach(link => {
-            link.classList.remove('active');
-        });
         event.target.classList.add('active');
     }
 
-    // Show 'info' tab by default on page load
-    document.addEventListener('DOMContentLoaded', () => {
-        showTab('info', { target: document.querySelector('.nav-link.active') });
+    // Show the info tab by default
+    document.addEventListener("DOMContentLoaded", function() {
+        showTab('info', event);
     });
 </script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849BlAJw1UIWfW1G1m5J2iB0mbjT1zHROptxHQB5La9U+P0L4xT1bM4P5d8" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-dD1y4W8u4yI6B2HY4MLaz4AEu4X4c8x8t/7I6xV6s4C4e+xYtUu5y5D5ipR7yxR8" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-5X0eQ7aE0Vt5j3gQ1Nn8N3eX/vW74E1n+/E6U3f2E9IuA3e4e6G9A3T/sD8y4x4g" crossorigin="anonymous"></script>
+
 </body>
 </html>
