@@ -130,13 +130,13 @@
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#!">/</a>
+                            <a class="nav-link active" href="#!" onclick="showTab('info')">Información</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="links/link2.html">Links</a> <!-- Ajuste realizado -->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" href="#!"></a>
+                            <a class="nav-link disabled" href="#!" onclick="showTab('links')">Links</a>
                         </li>
                     </ul>
                 </div>
@@ -210,9 +210,48 @@
     </div>
 </div>
 
+    <!-- Contenido de la pestaña de Links -->
+                    <div id="links" class="tab-content" style="display: none;">
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Links útiles</h4>
+                        <p class="card-title text-grey text-spacey">
+                            Aquí hay algunos recursos adicionales para aprender más sobre IDORs y su mitigación:
+                        </p>
+                        <ul class="list-unstyled text-grey text-spacey">
+                            <li><a href="https://owasp.org/www-community/attacks/Insecure_Direct_Object_Reference_IDOR" target="_blank">OWASP: Insecure Direct Object Reference (IDOR)</a></li>
+                            <li><a href="https://www.acunetix.com/blog/articles/insecure-direct-object-reference-idor/" target="_blank">Acunetix: Insecure Direct Object Reference</a></li>
+                            <li><a href="https://portswigger.net/web-security/access-control/insecure-direct-object-reference" target="_blank">PortSwigger: Insecure Direct Object Reference</a></li>
+                            <li><a href="https://csoonline.com/article/3543751/what-is-an-insecure-direct-object-reference-idor-and-how-to-fix-it.html" target="_blank">CSO Online: What is an Insecure Direct Object Reference (IDOR) and How to Fix It?</a></li>
+                            <li><a href="https://www.synopsys.com/blogs/software-security/insecure-direct-object-reference/" target="_blank">Synopsys: Insecure Direct Object Reference</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT0I+VMY8I8hU8Gq7r8nI9R1X3c8s9O1/nDmdF/p8zq6E5d1s1" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-JZ9Ay7nnZzpVso6kw4B2RIvHZ5d0Ap3N56n7KJf0MnS9gYgM6k6QJg+2/5a8l40Z" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-q8i/X+965DzO0rT0I+VMY8I8hU8Gq7r8nI9R1X3c8s9O1/nDmdF/p8zq6E5d1s1" crossorigin="anonymous"></script>
 
+<script>
+    function showTab(tab) {
+        // Oculta todas las pestañas
+        document.getElementById('info').style.display = 'none';
+        document.getElementById('links').style.display = 'none';
+        
+        // Muestra la pestaña seleccionada
+        document.getElementById(tab).style.display = 'block';
+
+        // Resalta la pestaña activa
+        const tabs = document.querySelectorAll('.nav-link');
+        tabs.forEach(t => t.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+
+    
 </body>
 </html>
