@@ -120,11 +120,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#!" onclick="showTab('links', event)">Links</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#!"></a>
-                        </li>
                     </ul>
                 </div>
+
+                <!-- Botón Volver -->
+                <div class="btn-container text-center"> <!-- Contenedor para centrar el botón -->
+                    <a href="../blog.html" class="btn btn-primary mt-4">Volver</a> <!-- Ajustar la ruta -->
+                </div>
+
                 <div class="card-body">
                     <!-- Contenido de la pestaña de Información -->
                     <div id="info" class="tab-content">
@@ -150,112 +153,67 @@
                         <p class="card-title text-grey text-spacey">Consecuencias Legales: Las violaciones de datos pueden llevar a acciones legales y multas significativas, especialmente si se trata de información regulada.</p>
 
                         <h4 class="mt-4 text-grey" style="font-weight: bold;">Ejemplos de IDOR</h4>
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Acceso a Cuentas de Clientes:</h4>
-                        <p class="card-title text-grey text-spacey"> Imagina un sitio web donde los usuarios pueden acceder a sus cuentas mediante la siguiente URL:</p>
-                        <div class="card border-primary mb-3 text-center">
-                            <div class="card-body">
-                                <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/account?id=1234</p>
-                            </div>
-                        </div>
-                        <p class="card-title text-grey text-spacey">Si la aplicación no verifica si el usuario tiene permiso para acceder a la cuenta con ID 1234, un atacante podría cambiar el ID en la URL para acceder a la cuenta de otro usuario si no hay controles de acceso adecuados en su lugar.</p>
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Acceso a Archivos Sensibles:</h4>
-                        <p class="card-title text-grey text-spacey"> En un sistema de gestión de archivos, un usuario podría acceder a un archivo mediante:</p>
-                        <div class="card border-primary mb-3 text-center">
-                            <div class="card-body">
-                                <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/file?fileId=5678</p>
-                            </div>
-                        </div>
-                        <p class="card-title text-grey text-spacey">Si el sistema no verifica si el usuario tiene permiso para acceder al archivo solicitado, un atacante podría cambiar el ID del archivo y acceder a documentos sensibles.</p>
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Información de Pedido:</h4>
-                        <p class="card-title text-grey text-spacey"> En una tienda en línea, un usuario puede ver su historial de pedidos con la siguiente URL:</p>
-                            <div class="card border-primary mb-3 text-center">
-                                <div class="card-body">
-                                    <blockquote class="card-blockquote">
-                                        <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/orders?order_id=5678</p>
-                                    </blockquote>
-                                    <p class="card-title text-grey text-spacey"> Si no hay controles adecuados, un atacante podría ver los pedidos de otros usuarios simplemente cambiando el <code>order_id</code>.</p>
-                                </div>
-                            </div>
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Acceso a Mensajes Privados:</h4>
-                          <p class="card-title text-grey text-spacey"> Una aplicación de mensajería que almacena mensajes con un ID en la URL:</p>
-                            <div class="card border-primary mb-3 text-center">
-                                <div class="card-body">
-                                    <blockquote class="card-blockquote">
-                                        <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/messages?message_id=9999</p>
-                                    </blockquote>
-                                    <p class="card-title text-grey text-spacey">Un atacante podría acceder a mensajes de otros usuarios cambiando el <code>message_id</code>.</p>
-                                </div>
-                            </div>
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Técnicas para Encontrar IDOR</h4>
-                        <p class="card-title text-grey text-spacey">La identificación de IDORs requiere un enfoque metódico. Algunas técnicas comunes incluyen:</p>
-                        <p class="card-title text-grey text-spacey">Manipulación de Parámetros: Cambiar parámetros en la URL o en las solicitudes para verificar si se puede acceder a recursos no autorizados.</p>
-                        <p class="card-title text-grey text-spacey">Revisión de Código: Inspeccionar el código fuente de la aplicación para identificar controles de acceso inadecuados.</p>
-                        <p class="card-title text-grey text-spacey">Análisis de Respuestas: Evaluar las respuestas de la aplicación para detectar información que podría indicar la presencia de IDORs.</p>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">1. Acceso a Documentos</h4>
+                        <p class="card-title text-grey text-spacey">Un usuario podría acceder a documentos que no le pertenecen cambiando un ID en la URL, como http://example.com/documents?id=123 a http://example.com/documents?id=124.</p>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">2. Cambio de Información de Usuario</h4>
+                        <p class="card-title text-grey text-spacey">Un atacante podría cambiar el ID de su cuenta para acceder a la información de otra cuenta simplemente modificando el ID en el parámetro de la solicitud.</p>
+
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Técnicas para Encontrar IDORs</h4>
+                        <p class="card-title text-grey text-spacey">Los testers de seguridad pueden buscar IDORs siguiendo algunas técnicas, como:</p>
+                        <p class="card-title text-grey text-spacey">1. Enumeración: Probar diferentes ID para ver si se puede acceder a recursos no autorizados.</p>
+                        <p class="card-title text-grey text-spacey">2. Análisis de Parámetros: Revisar las URL y los parámetros de solicitud en busca de identificadores que puedan ser manipulados.</p>
+                        <p class="card-title text-grey text-spacey">3. Revisión de Código: Analizar el código fuente para encontrar controles de acceso débiles o ausentes.</p>
 
                         <h4 class="mt-4 text-grey" style="font-weight: bold;">Medidas de Mitigación</h4>
-                        <p class="card-title text-grey text-spacey"> Para prevenir las IDORs, las organizaciones deben implementar controles de acceso adecuados, tales como:</p>
-                        <p class="card-title text-grey text-spacey">Validación de Parámetros: Verificar que los usuarios tengan acceso a los recursos que intentan acceder.</p>
-                        <p class="card-title text-grey text-spacey">Autenticación Fuerte: Asegurarse de que los usuarios estén autenticados correctamente antes de acceder a cualquier recurso sensible.</p>
-                        <p class="card-title text-grey text-spacey">Auditorías y Pruebas de Seguridad: Realizar auditorías regulares y pruebas de penetración para identificar y abordar vulnerabilidades.</p>
+                        <p class="card-title text-grey text-spacey">Las organizaciones pueden implementar varias medidas para mitigar las IDORs:</p>
+                        <p class="card-title text-grey text-spacey">1. Validación de Acceso: Siempre validar que el usuario tiene permiso para acceder al objeto solicitado.</p>
+                        <p class="card-title text-grey text-spacey">2. No Exponer IDs Sensibles: Evitar el uso de IDs secuenciales que puedan ser fácilmente adivinados.</p>
+                        <p class="card-title text-grey text-spacey">3. Auditar y Monitorear: Realizar auditorías de seguridad regulares y monitorear los accesos a los recursos sensibles.</p>
+                    </div>
 
                     <!-- Contenido de la pestaña de Links -->
-                    <div id="links" class="tab-content" style="display: none;">
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Recursos Adicionales</h4>
-                        <p class="card-title text-grey text-spacey">
-                            Aquí hay algunos enlaces útiles para aprender más sobre IDOR y cómo mitigarlos:
-                        </p>
-                        <ul class="list-unstyled">
-                            <li><a href="https://portswigger.net/web-security/access-control/idor" target="_blank">PortSwigger - IDOR</a></li>
-                            <li><a href="https://vickieli.medium.com/intro-to-idor-9048453a3e5d" target="_blank">Introducción a IDOR</a></li>
-                            <li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/04-Testing_for_Insecure_Direct_Object_References" target="_blank">OWASP - Testing for Insecure Direct Object References</a></li>
-                            <li><a href="https://vickieli.medium.com/how-to-find-more-idors-ae2db67c9489" target="_blank">Cómo encontrar más IDORs</a></li>
-                            <li><a href="https://adipsharif.medium.com/unveiling-all-techniques-to-find-idors-in-web-applications-578d2b8aa28a" target="_blank">Técnicas para encontrar IDORs</a></li>
-                            <li><a href="https://medium.com/@insightfulrohit/all-about-insecure-direct-object-reference-idor-666cad6a94f0" target="_blank">Todo sobre IDOR</a></li>
-                            <li><a href="https://16521092.medium.com/some-ways-to-find-more-idor-da16c93954e5" target="_blank">Algunas formas de encontrar más IDORs</a></li>
+                    <div id="links" class="tab-content" style="display:none;">
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Links Importantes</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="https://owasp.org/www-community/attacks/Insecure_Direct_Object_Reference" target="_blank">OWASP - Insecure Direct Object Reference</a></li>
+                            <li class="list-group-item"><a href="https://www.acunetix.com/blog/articles/insecure-direct-object-references-idor/" target="_blank">Acunetix - Insecure Direct Object References (IDOR)</a></li>
+                            <li class="list-group-item"><a href="https://www.owasp.org/images/7/7a/OWASP_Top_Ten_2017_Translated_Spanish.pdf" target="_blank">OWASP Top Ten 2017 - Español</a></li>
                         </ul>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-  <!-- Botón Volver -->
-                        <div class="btn-container text-center"> <!-- Contenedor para centrar el botón -->
-                            <a href="../blog.html" class="btn btn-primary mt-4">Volver</a> <!-- Ajustar la ruta -->
-                        </div>
-                    </div>
+                </div> <!-- Fin de card-body -->
+            </div> <!-- Fin de card -->
+        </div> <!-- Fin de col-md-10 -->
+    </div> <!-- Fin de row -->
+</div> <!-- Fin de container -->
 
-    
-<!-- Bootstrap JS (requires jQuery) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<!-- Custom JS -->
+<!-- JavaScript Section -->
 <script>
     function showTab(tab, event) {
-        // Hide all tab contents
-        document.getElementById('info').style.display = 'none';
-        document.getElementById('links').style.display = 'none';
-        
-        // Remove 'active' class from all tabs
-        let tabs = document.querySelectorAll('.nav-link');
-        tabs.forEach(function(t) {
-            t.classList.remove('active');
+        event.preventDefault(); // Evitar el comportamiento por defecto del enlace
+        // Ocultar todas las pestañas
+        document.querySelectorAll('.tab-content').forEach(function(tabContent) {
+            tabContent.style.display = 'none';
         });
-
-        // Show the selected tab content
+        // Mostrar la pestaña seleccionada
         document.getElementById(tab).style.display = 'block';
-
-        // Add 'active' class to the clicked tab
-        event.currentTarget.classList.add('active');
+        
+        // Cambiar la clase activa de los enlaces de pestañas
+        document.querySelectorAll('.nav-link').forEach(function(link) {
+            link.classList.remove('active');
+        });
+        event.target.classList.add('active');
     }
 
-    // Show the default tab (info) on load
-    document.addEventListener('DOMContentLoaded', function() {
-        showTab('info', {currentTarget: document.querySelector('.nav-link.active')});
+    // Mostrar por defecto la pestaña de información
+    document.addEventListener("DOMContentLoaded", function() {
+        showTab('info', event);
     });
 </script>
 
+<!-- Optional JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7xj4NAljI5gWlW4cK8M41zdYf1Pb8h8R5d3kBrj9G8Q2Hq0" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-JZyNq59t7kZ8GpZg2f/7C26tT2S3Xp5Sk3zCq0n8hW7bUjIlBgFAq5R01uGCE5A" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-9aY7z7F0F4Ri2cQh6vM09f8/Pr5tB5j/8D8Z7hGAVcT1gR3V6A0ptPavJ4+7I6w" crossorigin="anonymous"></script>
 </body>
 </html>
+
