@@ -60,6 +60,7 @@
     </div>
 </div>
 
+<!-- Jumbotron Section -->
 <div class="jumbotron bg-transparent mb-0">
     <div class="container">
         <h1 class="display-2">SQL Injection<span class="vim-caret">/</span></h1>
@@ -67,58 +68,49 @@
     </div>
 </div>
 
+<!-- Main content area -->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card text-center">
                 <div class="card-header">
-                    <ul class="nav nav-tabs card-header-tabs">
+                    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#!">/</a>
+                            <a class="nav-link active" id="content-tab" data-toggle="tab" href="#content" role="tab" aria-controls="content" aria-selected="true">/</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="links/link1.html">Links</a>
+                            <a class="nav-link" id="links-tab" data-toggle="tab" href="#links" role="tab" aria-controls="links" aria-selected="false">Links</a>
                         </li>
                     </ul>
                 </div>
-                <div class="card-body">
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Recursos para Comprender SQL Injection</h4>
-                    <p class="card-title text-grey text-spacey">
-                        OWASP (Open Web Application Security Project):<br>
-                        <strong>OWASP SQL Injection</strong> - Proporciona una descripción general de SQL Injection, sus técnicas y cómo prevenirlo.
-                    </p>
-                    <p class="card-title text-grey text-spacey">
-                        Wikipedia:<br>
-                        <strong>SQL Injection - Wikipedia</strong> - Artículo que ofrece información sobre la historia, el funcionamiento, ejemplos y métodos de mitigación.
-                    </p>
-                    <p class="card-title text-grey text-spacey">
-                        Acunetix:<br>
-                        <strong>What is SQL Injection?</strong> - Explicación de qué es SQL Injection, ejemplos de ataques y cómo prevenirlo.
-                    </p>
-                    <p class="card-title text-grey text-spacey">
-                        SQL Injection Attacks by Example:<br>
-                        <strong>SQL Injection Attacks by Example</strong> - Un artículo de OWASP que ilustra diferentes ejemplos de ataques de SQL Injection.
-                    </p>
-                    <p class="card-title text-grey text-spacey">
-                        Veracode:<br>
-                        <strong>SQL Injection - The Basics</strong> - Un recurso que explica la inyección SQL y ofrece consejos sobre cómo mitigar esta vulnerabilidad.
-                    </p>
-                    <p class="card-title text-grey text-spacey">
-                        SANS Institute:<br>
-                        <strong>Web Application Security Essentials: SQL Injection</strong> - Un documento técnico que describe cómo funcionan los ataques de inyección SQL y estrategias de mitigación.
-                    </p>
-                    <p class="card-title text-grey text-spacey">
-                        PortSwigger:<br>
-                        <strong>SQL Injection Cheat Sheet</strong> - Un recurso detallado que abarca la inyección SQL, incluyendo ejemplos y técnicas de prueba.
-                    </p>
-                    <p class="card-title text-grey text-spacey">
-                        Acunetix Blog:<br>
-                        <strong>SQL Injection: What It Is and How to Prevent It</strong> - Un artículo que proporciona información sobre la inyección SQL y las mejores prácticas para su prevención.
-                    </p>
 
-                    <div class="text-center">
-                        <a href="../blog.html" class="btn btn-primary mt-4">Volver</a>
+                <div class="card-body tab-content" id="myTabContent">
+                    <!-- Content Tab -->
+                    <div class="tab-pane fade show active" id="content" role="tabpanel" aria-labelledby="content-tab">
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">¿Qué es un SQL Injection?</h4>
+                        <p class="card-title text-grey text-spacey">
+                            SQL Injection es una vulnerabilidad en aplicaciones web que permite a los atacantes interferir en las consultas que una aplicación hace a su base de datos. Puede permitir la manipulación de datos o el acceso no autorizado a información sensible.
+                        </p>
                     </div>
+
+                    <!-- Links Tab -->
+                    <div class="tab-pane fade" id="links" role="tabpanel" aria-labelledby="links-tab">
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Recursos para Comprender SQL Injection</h4>
+                        <ul class="list-unstyled text-grey text-spacey">
+                            <li><strong>OWASP SQL Injection</strong> - Proporciona una descripción general de SQL Injection, sus técnicas y cómo prevenirlo.</li>
+                            <li><strong>Wikipedia:</strong> SQL Injection - Artículo que ofrece información sobre la historia, el funcionamiento, ejemplos y métodos de mitigación.</li>
+                            <li><strong>Acunetix:</strong> What is SQL Injection? - Explicación de qué es SQL Injection, ejemplos de ataques y cómo prevenirlo.</li>
+                            <li><strong>SQL Injection Attacks by Example:</strong> Un artículo de OWASP que ilustra diferentes ejemplos de ataques de SQL Injection.</li>
+                            <li><strong>Veracode:</strong> SQL Injection - The Basics - Un recurso que explica la inyección SQL y ofrece consejos sobre cómo mitigar esta vulnerabilidad.</li>
+                            <li><strong>SANS Institute:</strong> Web Application Security Essentials: SQL Injection - Un documento técnico que describe cómo funcionan los ataques de inyección SQL y estrategias de mitigación.</li>
+                            <li><strong>PortSwigger:</strong> SQL Injection Cheat Sheet - Un recurso detallado que abarca la inyección SQL, incluyendo ejemplos y técnicas de prueba.</li>
+                            <li><strong>Acunetix Blog:</strong> SQL Injection: What It Is and How to Prevent It - Un artículo que proporciona información sobre la inyección SQL y las mejores prácticas para su prevención.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="../blog.html" class="btn btn-primary mt-4">Volver</a>
                 </div>
             </div>
         </div>
@@ -131,4 +123,3 @@
 
 </body>
 </html>
-
