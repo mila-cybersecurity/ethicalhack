@@ -33,8 +33,10 @@
         /* Full height card */
         .card {
             height: calc(100vh - 160px); /* Full height minus jumbotron and navbar */
-            margin-top: 0; /* No margin on top */
-            border-radius: 0; /* Remove border radius to fit better */
+            width: 100%;                 /* Full width of the parent column */
+            max-width: 900px;            /* Limita el ancho máximo en pantallas grandes */
+            margin-top: 0;               /* No margin on top */
+            border-radius: 0;            /* Remove border radius to fit better */
         }
 
         /* Adjust container */
@@ -85,7 +87,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10"> <!-- Ajustado a col-md-10 para mayor anchura en pantalla -->
             <div class="card text-center">
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
