@@ -122,7 +122,6 @@
     </div>
 </div>
 
-<!-- Main content area -->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -130,21 +129,19 @@
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#!" onclick="showTab('info')">Información</a>
+                            <a class="nav-link active" href="#!" onclick="showTab('info', event)">Información</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="links/link2.html">Links</a> <!-- Ajuste realizado -->
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#!" onclick="showTab('links')">Links</a>
+                            <a class="nav-link" href="#!" onclick="showTab('links', event)">Links</a>
                         </li>
                     </ul>
                 </div>
                 <div class="card-body">
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">¿Qué es SQL Injection? ¿Cómo mitigarlo?</h4>
-                    <p class="card-title text-grey text-spacey">
-                        SQL Injection (SQLi) es una de las vulnerabilidades de seguridad más comunes que afecta a las aplicaciones web. Ocurre cuando un atacante puede ejecutar comandos SQL maliciosos en la base de datos de una aplicación al manipular las entradas del usuario.
-                    </p>
+                    <div id="info" class="tab-content">
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">¿Qué es SQL Injection? ¿Cómo mitigarlo?</h4>
+                        <p class="card-title text-grey text-spacey">
+                            SQL Injection (SQLi) es una de las vulnerabilidades de seguridad más comunes que afecta a las aplicaciones web...
+                        </p>
 
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Historia de SQL Injection</h4>
                     <p class="card-title text-grey text-spacey">
@@ -201,7 +198,21 @@
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Conclusión</h4>
                     <p class="card-title text-grey text-spacey"> SQL Injection es una amenaza grave que puede comprometer la integridad y la confidencialidad de los datos. Es fundamental que las organizaciones comprendan cómo funciona SQLi y apliquen las mejores prácticas de seguridad para proteger sus aplicaciones web.</p>
                     
-                    <div class="btn-container"> <!-- Contenedor para centrar el botón -->
+                   <!-- Contenido de la pestaña de Links -->
+                    <div id="links" class="tab-content" style="display: none;">
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Links útiles</h4>
+                        <p class="card-title text-grey text-spacey">
+                            Aquí hay algunos recursos adicionales para aprender más sobre SQL Injection y su mitigación:
+                        </p>
+                        <ul class="list-unstyled text-grey text-spacey">
+                            <li><a href="https://owasp.org/www-community/attacks/SQL_Injection" target="_blank">OWASP: SQL Injection</a></li>
+                            <li><a href="https://www.acunetix.com/blog/articles/sql-injection/" target="_blank">Acunetix: SQL Injection</a></li>
+                            <li><a href="https://portswigger.net/web-security/sql-injection" target="_blank">PortSwigger: SQL Injection</a></li>
+                            <li><a href="https://www.synopsys.com/blogs/software-security/sql-injection/" target="_blank">Synopsys: SQL Injection</a></li>
+                        </ul>
+                    </div>
+                        
+    <div class="btn-container"> <!-- Contenedor para centrar el botón -->
                         <a href="../blog.html" class="btn btn-primary mt-4">Volver</a> <!-- Ajustar la ruta -->
                     </div>
                 </div>
@@ -210,48 +221,25 @@
     </div>
 </div>
 
-    <!-- Contenido de la pestaña de Links -->
-                    <div id="links" class="tab-content" style="display: none;">
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Links útiles</h4>
-                        <p class="card-title text-grey text-spacey">
-                            Aquí hay algunos recursos adicionales para aprender más sobre IDORs y su mitigación:
-                        </p>
-                        <ul class="list-unstyled text-grey text-spacey">
-                            <li><a href="https://owasp.org/www-community/attacks/Insecure_Direct_Object_Reference_IDOR" target="_blank">OWASP: Insecure Direct Object Reference (IDOR)</a></li>
-                            <li><a href="https://www.acunetix.com/blog/articles/insecure-direct-object-reference-idor/" target="_blank">Acunetix: Insecure Direct Object Reference</a></li>
-                            <li><a href="https://portswigger.net/web-security/access-control/insecure-direct-object-reference" target="_blank">PortSwigger: Insecure Direct Object Reference</a></li>
-                            <li><a href="https://csoonline.com/article/3543751/what-is-an-insecure-direct-object-reference-idor-and-how-to-fix-it.html" target="_blank">CSO Online: What is an Insecure Direct Object Reference (IDOR) and How to Fix It?</a></li>
-                            <li><a href="https://www.synopsys.com/blogs/software-security/insecure-direct-object-reference/" target="_blank">Synopsys: Insecure Direct Object Reference</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT0I+VMY8I8hU8Gq7r8nI9R1X3c8s9O1/nDmdF/p8zq6E5d1s1" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-JZ9Ay7nnZzpVso6kw4B2RIvHZ5d0Ap3N56n7KJf0MnS9gYgM6k6QJg+2/5a8l40Z" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-q8i/X+965DzO0rT0I+VMY8I8hU8Gq7r8nI9R1X3c8s9O1/nDmdF/p8zq6E5d1s1" crossorigin="anonymous"></script>
 
 <script>
-    function showTab(tab) {
-        // Oculta todas las pestañas
-        document.getElementById('info').style.display = 'none';
-        document.getElementById('links').style.display = 'none';
+    function showTab(tabName, event) {
+        // Oculta todos los contenidos de las pestañas
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(content => content.style.display = 'none');
         
         // Muestra la pestaña seleccionada
-        document.getElementById(tab).style.display = 'block';
+        document.getElementById(tabName).style.display = 'block';
 
         // Resalta la pestaña activa
-        const tabs = document.querySelectorAll('.nav-link');
-        tabs.forEach(t => t.classList.remove('active'));
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => link.classList.remove('active'));
         event.currentTarget.classList.add('active');
     }
 </script>
 
-
-    
 </body>
 </html>
