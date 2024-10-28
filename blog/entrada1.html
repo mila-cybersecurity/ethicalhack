@@ -66,6 +66,12 @@
         .card-body {
             text-align: left; /* Aligns text to the left */
         }
+
+        /* Button container styles */
+        .btn-container {
+            text-align: center; /* Center the button */
+            margin-top: 20px; /* Add some space above the button */
+        }
     </style>
 </head>
 <body>
@@ -109,10 +115,10 @@
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#!" onclick="showTab('info')">Información</a>
+                            <a class="nav-link active" href="#!" onclick="showTab('info', event)">Información</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#!" onclick="showTab('links')">Links</a>
+                            <a class="nav-link" href="#!" onclick="showTab('links', event)">Links</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#!"></a>
@@ -148,44 +154,57 @@
                         <p class="card-title text-grey text-spacey"> Imagina un sitio web donde los usuarios pueden acceder a sus cuentas mediante la siguiente URL:</p>
                         <div class="card border-primary mb-3 text-center">
                             <div class="card-body">
-                                <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/account?user_id=<code>1001</code></p>
-                                <p class="card-title text-grey text-spacey"> Si un atacante cambia el parámetro <code>user_id</code> a <code>1002</code>, podría acceder a la cuenta de otro usuario sin tener permiso.</p>
+                                <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/account?id=1234</p>
                             </div>
                         </div>
-                        
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Acceso a Archivos Privados:</h4>
-                        <p class="card-title text-grey text-spacey"> En una aplicación que permite a los usuarios descargar archivos, si la URL de descarga es similar a:</p>
+                        <p class="card-title text-grey text-spacey">Si la aplicación no verifica si el usuario tiene permiso para acceder a la cuenta con ID 1234, un atacante podría cambiar el ID en la URL para acceder a la cuenta de otro usuario si no hay controles de acceso adecuados en su lugar.</p>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Acceso a Archivos Sensibles:</h4>
+                        <p class="card-title text-grey text-spacey"> En un sistema de gestión de archivos, un usuario podría acceder a un archivo mediante:</p>
                         <div class="card border-primary mb-3 text-center">
                             <div class="card-body">
-                                <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/download?file_id=<code>123</code></p>
-                                <p class="card-title text-grey text-spacey"> Cambiar el parámetro <code>file_id</code> a <code>124</code> podría permitir al atacante descargar archivos que no debería poder acceder.</p>
+                                <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/file?fileId=5678</p>
                             </div>
                         </div>
-
+                        <p class="card-title text-grey text-spacey">Si el sistema no verifica si el usuario tiene permiso para acceder al archivo solicitado, un atacante podría cambiar el ID del archivo y acceder a documentos sensibles.</p>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Información de Pedido:</h4>
+                        <p class="card-title text-grey text-spacey"> En una tienda en línea, un usuario puede ver su historial de pedidos con la siguiente URL:</p>
+                            <div class="card border-primary mb-3 text-center">
+                                <div class="card-body">
+                                    <blockquote class="card-blockquote">
+                                        <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/orders?order_id=5678</p>
+                                    </blockquote>
+                                    <p class="card-title text-grey text-spacey"> Si no hay controles adecuados, un atacante podría ver los pedidos de otros usuarios simplemente cambiando el <code>order_id</code>.</p>
+                                </div>
+                            </div>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Acceso a Mensajes Privados:</h4>
+                          <p class="card-title text-grey text-spacey"> Una aplicación de mensajería que almacena mensajes con un ID en la URL:</p>
+                            <div class="card border-primary mb-3 text-center">
+                                <div class="card-body">
+                                    <blockquote class="card-blockquote">
+                                        <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/messages?message_id=9999</p>
+                                    </blockquote>
+                                    <p class="card-title text-grey text-spacey">Un atacante podría acceder a mensajes de otros usuarios cambiando el <code>message_id</code>.</p>
+                                </div>
+                            </div>
                         <h4 class="mt-4 text-grey" style="font-weight: bold;">Técnicas para Encontrar IDOR</h4>
-                        <p class="card-title text-grey text-spacey"> Encontrar IDORs requiere un enfoque sistemático. Algunas técnicas comunes incluyen:</p>
-                        <ul class="card-title text-grey text-spacey">
-                            <li>Exploración de Parámetros: Analiza los parámetros en las URL y formularios para identificar posibles identificadores de objetos.</li>
-                            <li>Manipulación de Parámetros: Modifica los valores de los parámetros para observar si se puede acceder a objetos no autorizados.</li>
-                            <li>Pruebas de Carga: Prueba diferentes identificadores en múltiples iteraciones para descubrir posibles brechas.</li>
-                        </ul>
+                        <p class="card-title text-grey text-spacey">La identificación de IDORs requiere un enfoque metódico. Algunas técnicas comunes incluyen:</p>
+                        <p class="card-title text-grey text-spacey">Manipulación de Parámetros: Cambiar parámetros en la URL o en las solicitudes para verificar si se puede acceder a recursos no autorizados.</p>
+                        <p class="card-title text-grey text-spacey">Revisión de Código: Inspeccionar el código fuente de la aplicación para identificar controles de acceso inadecuados.</p>
+                        <p class="card-title text-grey text-spacey">Análisis de Respuestas: Evaluar las respuestas de la aplicación para detectar información que podría indicar la presencia de IDORs.</p>
 
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Mitigación de IDORs</h4>
-                        <p class="card-title text-grey text-spacey"> La mitigación de IDORs implica implementar controles de acceso adecuados. Algunas medidas efectivas incluyen:</p>
-                        <ul class="card-title text-grey text-spacey">
-                            <li>Validación de Acceso: Asegúrate de que los usuarios tengan los permisos necesarios para acceder a los objetos solicitados.</li>
-                            <li>Uso de Identificadores Aleatorios: Evita el uso de identificadores predecibles, optando por identificadores aleatorios o UUIDs.</li>
-                            <li>Auditorías Regulares: Realiza auditorías de seguridad para identificar y corregir posibles vulnerabilidades.</li>
-                        </ul>
-                    </div>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Medidas de Mitigación</h4>
+                        <p class="card-title text-grey text-spacey"> Para prevenir las IDORs, las organizaciones deben implementar controles de acceso adecuados, tales como:</p>
+                        <p class="card-title text-grey text-spacey">Validación de Parámetros: Verificar que los usuarios tengan acceso a los recursos que intentan acceder.</p>
+                        <p class="card-title text-grey text-spacey">Autenticación Fuerte: Asegurarse de que los usuarios estén autenticados correctamente antes de acceder a cualquier recurso sensible.</p>
+                        <p class="card-title text-grey text-spacey">Auditorías y Pruebas de Seguridad: Realizar auditorías regulares y pruebas de penetración para identificar y abordar vulnerabilidades.</p>
 
                     <!-- Contenido de la pestaña de Links -->
                     <div id="links" class="tab-content" style="display: none;">
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Links útiles</h4>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Recursos Adicionales</h4>
                         <p class="card-title text-grey text-spacey">
-                            Aquí hay algunos recursos adicionales para aprender más sobre IDORs y su mitigación:
+                            Aquí hay algunos enlaces útiles para aprender más sobre IDOR y cómo mitigarlos:
                         </p>
-                        <ul class="list-unstyled text-grey text-spacey">
+                        <ul class="list-unstyled">
                             <li><a href="https://portswigger.net/web-security/access-control/idor" target="_blank">PortSwigger - IDOR</a></li>
                             <li><a href="https://vickieli.medium.com/intro-to-idor-9048453a3e5d" target="_blank">Introducción a IDOR</a></li>
                             <li><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/04-Testing_for_Insecure_Direct_Object_References" target="_blank">OWASP - Testing for Insecure Direct Object References</a></li>
@@ -200,26 +219,42 @@
         </div>
     </div>
 </div>
+  <!-- Botón Volver -->
+                        <div class="btn-container text-center"> <!-- Contenedor para centrar el botón -->
+                            <a href="../blog.html" class="btn btn-primary mt-4">Volver</a> <!-- Ajustar la ruta -->
+                        </div>
+                    </div>
 
-<!-- Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    
+<!-- Bootstrap JS (requires jQuery) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<!-- Custom JS -->
 <script>
-    function showTab(tab) {
-        // Oculta todas las pestañas
+    function showTab(tab, event) {
+        // Hide all tab contents
         document.getElementById('info').style.display = 'none';
         document.getElementById('links').style.display = 'none';
         
-        // Muestra la pestaña seleccionada
+        // Remove 'active' class from all tabs
+        let tabs = document.querySelectorAll('.nav-link');
+        tabs.forEach(function(t) {
+            t.classList.remove('active');
+        });
+
+        // Show the selected tab content
         document.getElementById(tab).style.display = 'block';
 
-        // Resalta la pestaña activa
-        const tabs = document.querySelectorAll('.nav-link');
-        tabs.forEach(t => t.classList.remove('active'));
+        // Add 'active' class to the clicked tab
         event.currentTarget.classList.add('active');
     }
+
+    // Show the default tab (info) on load
+    document.addEventListener('DOMContentLoaded', function() {
+        showTab('info', {currentTarget: document.querySelector('.nav-link.active')});
+    });
 </script>
 
 </body>
