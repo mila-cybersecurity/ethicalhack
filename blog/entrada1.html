@@ -41,6 +41,12 @@
         .text-grey {
             font-size: 0.9rem; /* Smaller text for body content */
         }
+
+        /* Styling for code and URLs */
+        code {
+            color: #007bff; /* Blue color for code elements */
+            font-weight: bold; /* Bold font for emphasis */
+        }
         
         /* Full width card */
         .card {
@@ -146,8 +152,8 @@
                     
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Descarga de Facturas:</h4>
                     <p class="card-title text-grey text-spacey"> Supongamos que un sistema de facturación permite a los usuarios descargar sus facturas:</p>
-                    <pre><code class="bash">https://example.com/invoice?invoice_id=5001</code></pre>
-                    <p class="card-title text-grey text-spacey"> Un atacante podría manipular el <code>invoice_id</code> y descargar la factura de otro usuario.</p>
+                    <pre><code class="bash">https://example.com/invoice/download?invoice_id=2001</code></pre>
+                    <p class="card-title text-grey text-spacey"> Cambiando el <code>invoice_id</code> a un número que pertenece a otra factura, el atacante puede descargar información sensible de otro usuario.</p>
 
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Técnicas para Encontrar IDOR</h4>
                     <p class="card-title text-grey text-spacey"> La identificación de IDORs puede requerir tanto habilidades técnicas como un enfoque metódico. Algunas técnicas útiles incluyen:</p>
