@@ -175,8 +175,25 @@
                         <li><strong>Codificación de salida:</strong> Escapar caracteres especiales en el HTML (por ejemplo, <code>&lt;</code> a <code>&amp;lt;</code>).</li>
                         <li><strong>Uso de CSP:</strong> Content Security Policy (CSP) puede ayudar a mitigar el impacto de XSS al restringir los orígenes de contenido.</li>
                     </ul>
-                    <div class="btn-container text-center"> <!-- Agregado "text-center" para centrar el botón -->
-                        <a href="../blog.html" class="btn btn-primary mt-4">Volver</a> <!-- Ajustar la ruta -->
+                     <div class="btn-container">
+                            <a href="../blog.html" class="btn btn-primary">Volver</a> <!-- Botón corregido -->
+                        </div>
+                    </div>
+                     <!-- Contenido de la pestaña de Links -->
+                    <div id="links" class="tab-content" style="display: none;">
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Links Recomendados</h4>
+                        <ul class="text-grey">
+                            <ul class="list-unstyled">
+                            <li><a href="https://owasp.org/www-community/attacks/SQL_Injection" target="_blank">OWASP - SQL Injection</a></li>
+                            <li><a href="https://www.acunetix.com/websitesecurity/sql-injection/s/" target="_blank">Acunetix - SQL Injection Attacks</a></li>
+                            <li><a href="https://www.veracode.com/security/sql-injection" target="_blank">Veracode - SQL Injection</a></li>
+                            <li><a href="https://portswigger.net/web-security/sql-injection" target="_blank">PortSwigger - SQL Injection</a></li>
+                            <li><a href="https://brightsec.com/blog/sql-injection-attack/" target="_blank">Brightsec - SQL Injection</a></li>
+                             <li><a href="https://www.php.net/manual/en/security.database.sql-injection.php" target="_blank">PHP - SQL Injection</a></li>
+                        </ul>
+                         <div class="btn-container">
+                            <a href="../blog.html" class="btn btn-primary">Volver</a> <!-- Botón corregido -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -184,9 +201,35 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT+6u6T1z2s8+4s1s2O71A7sS4e1Tf7w+j6hMZx1p2FxZf7k45" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-JZ0knsC10P/94a60KdVnWxH6/6dQIRJ10/Ou1I3zPc07+3SyFYhS8Gs/4YlP4D7b" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-ggOyR0iXCbMQv3Xip8nQ7g2PtT5g8sZ4Cj30gB5F9sc5P2Bk8QFwmMx9R5+56qKt" crossorigin="anonymous"></script>
+
+<script>
+    function showTab(tabName, event) {
+        // Hide all tab contents
+        var tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(function(content) {
+            content.style.display = 'none';
+        });
+
+        // Remove active class from all tabs
+        var tabs = document.querySelectorAll('.nav-link');
+        tabs.forEach(function(tab) {
+            tab.classList.remove('active');
+        });
+
+        // Show the selected tab and add active class
+        document.getElementById(tabName).style.display = 'block';
+        event.target.classList.add('active');
+    }
+
+    // Show the info tab by default
+    document.addEventListener("DOMContentLoaded", function() {
+        showTab('info', event);
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849BlAJw1UIWfW1G1m5J2iB0mbjT1zHROptxHQB5La9U+P0L4xT1bM4P5d8" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-dD1y4W8u4yI6B2HY4MLaz4AEu4X4c8x8t/7I6xV6s4C4e+xYtUu5y5D5ipR7yxR8" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-5X0eQ7aE0Vt5j3gQ1Nn8N3eX/vW74E1n+/E6U3f2E9IuA3e4e6G9A3T/sD8y4x4g" crossorigin="anonymous"></script>
+
 </body>
 </html>
-
