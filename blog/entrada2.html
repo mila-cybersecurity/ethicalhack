@@ -143,77 +143,69 @@
                             SQL Injection (SQLi) es una de las vulnerabilidades de seguridad más comunes que afecta a las aplicaciones web...
                         </p>
 
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Historia de SQL Injection</h4>
-                    <p class="card-title text-grey text-spacey">
-                        La vulnerabilidad de SQL Injection fue descubierta en los años 90, con algunos de los primeros informes documentando ataques en aplicaciones web que utilizaban bases de datos SQL. A medida que el uso de bases de datos en línea creció, también lo hicieron los métodos de ataque. En 1998, se publicó un artículo por primera vez que discutía la inyección SQL como una técnica de explotación, señalando su potencial destructivo. Con el tiempo, muchas organizaciones han reconocido la importancia de protegerse contra este tipo de ataque, pero todavía ocurre en aplicaciones que no validan adecuadamente las entradas.
-                    </p>
-
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Funcionamiento de SQL Injection</h4>
-                    <p class="card-title text-grey text-spacey">
-                        La inyección SQL permite a un atacante interferir en las consultas que una aplicación web hace a su base de datos. Si una aplicación no valida adecuadamente las entradas del usuario, puede ser posible inyectar código SQL que afecte a la ejecución de consultas. Por ejemplo, si un formulario de inicio de sesión permite a un usuario ingresar un nombre de usuario y una contraseña sin validar, un atacante podría usar el siguiente input para el nombre de usuario:
-                    </p>
-                    <div class="card border-primary mb-3 text-center">
-                        <div class="card-body">
-                            <p class="mt-4 text-grey" style="font-weight: bold;">' OR '1'='1</p>
-                            <p class="card-title text-grey text-spacey"> Esto puede resultar en una consulta SQL como: <code>SELECT * FROM users WHERE username='' OR '1'='1' AND password=''</code>, lo que permite al atacante acceder a todas las cuentas de usuario.</p>
-                        </div>
-                    </div>
-
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Ejemplos de SQL Injection</h4>
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Acceso no autorizado:</h4>
-                    <p class="card-title text-grey text-spacey"> En una aplicación que permite el inicio de sesión, un atacante puede ingresar:</p>
-                    <div class="card border-primary mb-3 text-center">
-                        <div class="card-body">
-                            <p class="mt-4 text-grey" style="font-weight: bold;">' OR '1'='1' --</p>
-                            <p class="card-title text-grey text-spacey"> Esto podría hacer que la consulta se convierta en verdadera y permita el acceso sin credenciales válidas.</p>
-                        </div>
-                    </div>
-
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Extracción de datos:</h4>
-                    <p class="card-title text-grey text-spacey"> Un atacante puede inyectar código para extraer datos sensibles, como:</p>
-                    <div class="card border-primary mb-3 text-center">
-                        <div class="card-body">
-                            <p class="mt-4 text-grey" style="font-weight: bold;">'; DROP TABLE users; --</p>
-                            <p class="card-title text-grey text-spacey"> Esto podría eliminar la tabla de usuarios de la base de datos.</p>
-                        </div>
-                    </div>
-
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Filtrado de Datos:</h4>
-                    <p class="card-title text-grey text-spacey"> Un atacante puede intentar extraer datos sensibles de la base de datos utilizando una inyección SQL. Por ejemplo:</p>
-                    <div class="card border-primary mb-3 text-center">
-                        <div class="card-body">
-                            <p class="mt-4 text-grey" style="font-weight: bold;">1' UNION SELECT username, password FROM users --</p>
-                            <p class="card-title text-grey text-spacey"> Esto permite al atacante combinar resultados de múltiples consultas, revelando información confidencial.</p>
-                        </div>
-                    </div>
-
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Mejores Prácticas para Prevenir SQL Injection</h4>
-                    <p class="card-title text-grey text-spacey"> Para protegerse contra la inyección SQL, las organizaciones pueden implementar las siguientes medidas:</p>
-                    <ul class="card-title text-grey text-spacey">
-                        <li>Validación y Sanitización de Entradas: Asegurarse de que todos los datos de entrada sean válidos y seguros.</li>
-                        <li>Uso de Consultas Preparadas: Las consultas preparadas con parámetros evitan la inyección de código SQL al separar los comandos SQL de los datos.</li>
-                        <li>Control de Acceso: Limitar los privilegios de los usuarios en la base de datos, asegurando que incluso si hay una inyección SQL, el daño sea limitado.</li>
-                    </ul>
-      
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Conclusión</h4>
-                    <p class="card-title text-grey text-spacey"> SQL Injection es una amenaza grave que puede comprometer la integridad y la confidencialidad de los datos. Es fundamental que las organizaciones comprendan cómo funciona SQLi y apliquen las mejores prácticas de seguridad para proteger sus aplicaciones web.</p>
-                    
-                   <!-- Contenido de la pestaña de Links -->
-                    <div id="links" class="tab-content" style="display: none;">
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Links útiles</h4>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Historia de SQL Injection</h4>
                         <p class="card-title text-grey text-spacey">
-                            Aquí hay algunos recursos adicionales para aprender más sobre SQL Injection y su mitigación:
+                            La vulnerabilidad de SQL Injection fue descubierta en los años 90, con algunos de los primeros informes documentando ataques en aplicaciones web que utilizaban bases de datos SQL. A medida que el uso de bases de datos en línea creció, también lo hicieron los métodos de ataque. En 1998, se publicó un artículo por primera vez que discutía la inyección SQL como una técnica de explotación, señalando su potencial destructivo. Con el tiempo, muchas organizaciones han reconocido la importancia de protegerse contra este tipo de ataque, pero todavía ocurre en aplicaciones que no validan adecuadamente las entradas.
                         </p>
-                        <ul class="list-unstyled text-grey text-spacey">
-                            <li><a href="https://owasp.org/www-community/attacks/SQL_Injection" target="_blank">OWASP: SQL Injection</a></li>
-                            <li><a href="https://www.acunetix.com/blog/articles/sql-injection/" target="_blank">Acunetix: SQL Injection</a></li>
-                            <li><a href="https://portswigger.net/web-security/sql-injection" target="_blank">PortSwigger: SQL Injection</a></li>
-                            <li><a href="https://www.synopsys.com/blogs/software-security/sql-injection/" target="_blank">Synopsys: SQL Injection</a></li>
+
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Funcionamiento de SQL Injection</h4>
+                        <p class="card-title text-grey text-spacey">
+                            La inyección SQL permite a un atacante interferir en las consultas que una aplicación web hace a su base de datos. Si una aplicación no valida adecuadamente las entradas del usuario, puede ser posible inyectar código SQL que afecte a la ejecución de consultas. Por ejemplo, si un formulario de inicio de sesión permite a un usuario ingresar un nombre de usuario y una contraseña sin validar, un atacante podría usar el siguiente input para el nombre de usuario:
+                        </p>
+                        <div class="card border-primary mb-3 text-center">
+                            <div class="card-body">
+                                <p class="mt-4 text-grey" style="font-weight: bold;">' OR '1'='1</p>
+                                <p class="card-title text-grey text-spacey"> Esto puede resultar en una consulta SQL como: <code>SELECT * FROM users WHERE username='' OR '1'='1' AND password=''</code>, lo que permite al atacante acceder a todas las cuentas de usuario.</p>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Ejemplos de SQL Injection</h4>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Acceso no autorizado:</h4>
+                        <p class="card-title text-grey text-spacey"> En una aplicación que permite el inicio de sesión, un atacante puede ingresar:</p>
+                        <div class="card border-primary mb-3 text-center">
+                            <div class="card-body">
+                                <p class="mt-4 text-grey" style="font-weight: bold;">' OR '1'='1' --</p>
+                                <p class="card-title text-grey text-spacey"> Esto podría hacer que la consulta se convierta en verdadera y permita el acceso sin credenciales válidas.</p>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Extracción de datos:</h4>
+                        <p class="card-title text-grey text-spacey"> Un atacante puede inyectar código para extraer datos sensibles, como:</p>
+                        <div class="card border-primary mb-3 text-center">
+                            <div class="card-body">
+                                <p class="mt-4 text-grey" style="font-weight: bold;">'; DROP TABLE users; --</p>
+                                <p class="card-title text-grey text-spacey"> Esto podría eliminar la tabla de usuarios de la base de datos.</p>
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Mitigación de SQL Injection</h4>
+                        <p class="card-title text-grey text-spacey"> Para prevenir ataques de inyección SQL, se recomienda:</p>
+                        <ul class="text-grey text-spacey" style="list-style-type: disc; text-align: left; padding-left: 20px;">
+                            <li>Utilizar declaraciones preparadas y consultas parametrizadas.</li>
+                            <li>Validar y sanear todas las entradas del usuario.</li>
+                            <li>Limitar los privilegios de la base de datos de la aplicación.</li>
+                            <li>Implementar medidas de seguridad como firewall de aplicaciones web (WAF).</li>
                         </ul>
+                        <div class="btn-container">
+                            <a class="btn-volver" href="../blog.html">Volver al blog</a> <!-- Ajustar la ruta -->
+                        </div>
                     </div>
-                        
-    <div class="btn-container"> <!-- Contenedor para centrar el botón -->
-                        <a href="../blog.html" class="btn btn-primary mt-4">Volver</a> <!-- Ajustar la ruta -->
+                    <div id="links" class="tab-content" style="display: none;">
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Recursos Adicionales sobre SQL Injection</h4>
+                        <p class="card-title text-grey text-spacey">
+                            Aquí tienes algunos enlaces útiles para aprender más sobre la inyección SQL y cómo protegerte contra ella:
+                        </p>
+                        <ul class="text-grey text-spacey" style="list-style-type: disc; text-align: left; padding-left: 20px;">
+                            <li><a href="https://owasp.org/www-community/attacks/SQL_Injection" target="_blank">OWASP - SQL Injection</a></li>
+                            <li><a href="https://www.acunetix.com/websitesecurity/sql-injection/s/" target="_blank">Acunetix - SQL Injection Attacks</a></li>
+                            <li><a href="https://www.veracode.com/security/sql-injection" target="_blank">Veracode - SQL Injection</a></li>
+                            <li><a href="https://portswigger.net/web-security/sql-injection" target="_blank">PortSwigger - SQL Injection</a></li>
+                            <li><a href="https://brightsec.com/blog/sql-injection-attack/" target="_blank">Brightsec - SQL Injection</a></li>
+                             <li><a href="https://www.php.net/manual/en/security.database.sql-injection.php" target="_blank">PHP - SQL Injection</a></li>
+                        </ul>
+                        <div class="btn-container">
+                            <a class="btn-volver" href="../blog.html">Volver al blog</a> <!-- Ajustar la ruta -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -221,25 +213,34 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT0I+VMY8I8hU8Gq7r8nI9R1X3c8s9O1/nDmdF/p8zq6E5d1s1" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-JZ9Ay7nnZzpVso6kw4B2RIvHZ5d0Ap3N56n7KJf0MnS9gYgM6k6QJg+2/5a8l40Z" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-q8i/X+965DzO0rT0I+VMY8I8hU8Gq7r8nI9R1X3c8s9O1/nDmdF/p8zq6E5d1s1" crossorigin="anonymous"></script>
-
 <script>
     function showTab(tabName, event) {
-        // Oculta todos los contenidos de las pestañas
-        const tabContents = document.querySelectorAll('.tab-content');
-        tabContents.forEach(content => content.style.display = 'none');
-        
-        // Muestra la pestaña seleccionada
-        document.getElementById(tabName).style.display = 'block';
+        // Hide all tab contents
+        var tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(function(content) {
+            content.style.display = 'none';
+        });
 
-        // Resalta la pestaña activa
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => link.classList.remove('active'));
-        event.currentTarget.classList.add('active');
+        // Remove active class from all tabs
+        var tabs = document.querySelectorAll('.nav-link');
+        tabs.forEach(function(tab) {
+            tab.classList.remove('active');
+        });
+
+        // Show the selected tab and add active class
+        document.getElementById(tabName).style.display = 'block';
+        event.target.classList.add('active');
     }
+
+    // Show the info tab by default
+    document.addEventListener("DOMContentLoaded", function() {
+        showTab('info', event);
+    });
 </script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849BlAJw1UIWfW1G1m5J2iB0mbjT1zHROptxHQB5La9U+P0L4xT1bM4P5d8" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-dD1y4W8u4yI6B2HY4MLaz4AEu4X4c8x8t/7I6xV6s4C4e+xYtUu5y5D5ipR7yxR8" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-5X0eQ7aE0Vt5j3gQ1Nn8N3eX/vW74E1n+/E6U3f2E9IuA3e4e6G9A3T/sD8y4x4g" crossorigin="anonymous"></script>
 
 </body>
 </html>
