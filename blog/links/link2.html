@@ -1,1 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>SQL Injection: Recursos y Prevención</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/bootstrap4-neon-glow.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
+
+    <style>
+        /* Adjustments for mobile and font size */
+        @media (max-width: 767.98px) {
+            .navbar-collapse {
+                display: flex !important;
+                flex-direction: column;
+            }
+            .navbar-toggler {
+                display: none !important;
+            }
+            .jumbotron h1.display-2 {
+                font-size: 2.5rem;
+            }
+        }
+        h1.display-2 { font-size: 4rem; }
+        h4.card-title { font-size: 2rem; }
+        .text-grey { font-size: 0.9rem; }
+        .card { width: 100%; max-width: 900px; margin: 20px auto; border-radius: 0; }
+        .container { padding: 0; height: 100%; }
+        body { height: auto; margin: 0; }
+        .card-body { text-align: left; }
+    </style>
+</head>
+<body>
+
+<div class="navbar-dark text-white">
+    <div class="container">
+        <nav class="navbar px-0 navbar-expand-lg navbar-dark">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../portfolio.html">Portafolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../contact.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="jumbotron bg-transparent mb-0">
+    <div class="container">
+        <h1 class="display-2">SQL Injection<span class="vim-caret">/</span></h1>
+        <div class="lead mb-3 text-mono text-success">Inyección de SQL y prevención</div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card text-center">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#!">/</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="links/link1.html">Links</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Recursos para Comprender SQL Injection</h4>
+                    <p class="card-title text-grey text-spacey">
+                        OWASP (Open Web Application Security Project):<br>
+                        <strong>OWASP SQL Injection</strong> - Proporciona una descripción general de SQL Injection, sus técnicas y cómo prevenirlo.
+                    </p>
+                    <p class="card-title text-grey text-spacey">
+                        Wikipedia:<br>
+                        <strong>SQL Injection - Wikipedia</strong> - Artículo que ofrece información sobre la historia, el funcionamiento, ejemplos y métodos de mitigación.
+                    </p>
+                    <p class="card-title text-grey text-spacey">
+                        Acunetix:<br>
+                        <strong>What is SQL Injection?</strong> - Explicación de qué es SQL Injection, ejemplos de ataques y cómo prevenirlo.
+                    </p>
+                    <p class="card-title text-grey text-spacey">
+                        SQL Injection Attacks by Example:<br>
+                        <strong>SQL Injection Attacks by Example</strong> - Un artículo de OWASP que ilustra diferentes ejemplos de ataques de SQL Injection.
+                    </p>
+                    <p class="card-title text-grey text-spacey">
+                        Veracode:<br>
+                        <strong>SQL Injection - The Basics</strong> - Un recurso que explica la inyección SQL y ofrece consejos sobre cómo mitigar esta vulnerabilidad.
+                    </p>
+                    <p class="card-title text-grey text-spacey">
+                        SANS Institute:<br>
+                        <strong>Web Application Security Essentials: SQL Injection</strong> - Un documento técnico que describe cómo funcionan los ataques de inyección SQL y estrategias de mitigación.
+                    </p>
+                    <p class="card-title text-grey text-spacey">
+                        PortSwigger:<br>
+                        <strong>SQL Injection Cheat Sheet</strong> - Un recurso detallado que abarca la inyección SQL, incluyendo ejemplos y técnicas de prueba.
+                    </p>
+                    <p class="card-title text-grey text-spacey">
+                        Acunetix Blog:<br>
+                        <strong>SQL Injection: What It Is and How to Prevent It</strong> - Un artículo que proporciona información sobre la inyección SQL y las mejores prácticas para su prevención.
+                    </p>
+
+                    <div class="text-center">
+                        <a href="../blog.html" class="btn btn-primary mt-4">Volver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
 
