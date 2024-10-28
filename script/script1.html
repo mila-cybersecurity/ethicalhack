@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>¿Qué es un IDOR? como mitigarlo?</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/bootstrap4-neon-glow.min.css"> <!-- Ajustar la ruta -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
+
+    <style>
+        /* For mobile: make the navbar visible without collapsing */
+        @media (max-width: 767.98px) {
+            .navbar-collapse {
+                display: flex !important;
+                flex-direction: column;
+            }
+            .navbar-toggler {
+                display: none !important;
+            }
+        }
+
+        /* Adjust font size for the "¿Qué es un IDOR? como mitigarlo?" title on mobile screens */
+        @media (max-width: 767.98px) {
+            .jumbotron h1.display-2 {
+                font-size: 2.5rem; /* Adjusted size for mobile */
+            }
+        }
+
+        /* Adjust heading and text sizes */
+        h1.display-2 {
+            font-size: 4rem; /* Increased size for main title */
+        }
+        h4.card-title {
+            font-size: 2rem; /* Larger size for card titles */
+        }
+        .text-grey {
+            font-size: 0.9rem; /* Smaller text for body content */
+        }
+        
+        /* Full width card */
+        .card {
+            width: 100%;                 /* Full width of the parent column */
+            max-width: 900px;            /* Limita el ancho máximo en pantallas grandes */
+            margin: 20px auto;           /* Center the card and add margin */
+            border-radius: 0;            /* Remove border radius to fit better */
+        }
+
+        /* Adjust container */
+        .container {
+            padding: 0; /* Remove padding from container */
+            height: 100%; /* Full height for container */
+        }
+
+        /* Ensure body takes full height */
+        body {
+            height: auto; /* Let the body take the height based on content */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Align text to the left */
+        .card-body {
+            text-align: left; /* Aligns text to the left */
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar-dark text-white">
+    <div class="container">
+        <nav class="navbar px-0 navbar-expand-lg navbar-dark">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Inicio</a> <!-- Ajustar la ruta -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../blog.html">Blog</a> <!-- Ajustar la ruta -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../portfolio.html">Portafolio</a> <!-- Ajustar la ruta -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../contact.html">Contacto</a> <!-- Ajustar la ruta -->
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<!-- Jumbotron Section -->
+<div class="jumbotron bg-transparent mb-0">
+    <div class="container">
+        <h1 class="display-2">Sistema de Detección de Inicio de Sesión Sospechoso</h1> <!-- Título actualizado -->
+        <div class="lead mb-3 text-mono text-success">Verificación de intentos de inicio de sesión</div> <!-- Texto adicional -->
+    </div>
+</div>
+
+<!-- Main content area -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10"> <!-- Ajustado a col-md-10 para mayor anchura en pantalla -->
+            <div class="card text-center">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#!">/</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!">Links</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#!"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Detección de Inicio de Sesión Sospechoso</h4>
+                    <p class="card-title text-grey text-spacey">
+                        Este sistema verifica si un usuario ha realizado tres o más intentos fallidos de inicio de sesión.
+                    </p>
+
+                    <pre><code>
+# Código de detección de inicio de sesión
+with open("usuarios_inicio_sesion.txt", "r", encoding="utf8") as archivo:
+    archivo_texto = archivo.read()
+nombres_usuarios = archivo_texto.split()
+
+def verificar_inicio_sesion(lista_inicios, usuario_actual):
+    if usuario_actual in lista_inicios:
+        contador = 0
+        for i in lista_inicios:
+            if i == usuario_actual:
+                contador += 1
+        if contador >= 3:
+            return "Haz hecho 3 o más intentos de inicio de sesión. Tu cuenta ha sido bloqueada"
+        else:
+            return "Estás logueado"
+    else:
+        return "Usuario inexistente"
+
+# Verificar inicio de sesión de un usuario específico
+print(verificar_inicio_sesion(nombres_usuarios, "López"))
+                    </code></pre>
+
+                    <div class="text-center"> <!-- Se añadió esta línea para centrar el botón -->
+                        <a href="../blog.html" class="btn btn-primary mt-4">Volver</a> <!-- Ajustar la ruta -->
+                    </div> <!-- Cierre del div añadido -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT9T3T5sZ5/6L5h8L1owwKxQCh10fVu5a/vo0G2y0PTcQeyzQ6U" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-JjSmul/8d4e1IPT+Wl+k5zlfzB5z3ou3rE88uY6K9cKX5a8B3/mAO+Qd7p1wqR8E" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-C8LJ24LGAxTg1xSyH3M72d8D8l6q7H5x6eB5W07qF1u9yKmfXuwlf/l9pNde0v1g" crossorigin="anonymous"></script>
+
+</body>
+</html>
