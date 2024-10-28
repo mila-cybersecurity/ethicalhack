@@ -79,7 +79,7 @@
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card text-center">
+            <div class="card text-center" style="min-height: 100vh;">
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
@@ -143,54 +143,20 @@
                             </div>
           
                         <h4 class="mt-4 text-grey" style="font-weight: bold;">Información de Pedido:</h4>
-                        <p class="card-title text-grey text-spacey"> En una tienda en línea, un usuario puede ver su historial de pedidos con la siguiente URL:</p>
-                            <div class="card border-primary mb-3 text-center">
+                        <p class="card-title text-grey text-spacey"> En una tienda en línea, un cliente puede ver el estado de su pedido mediante una URL como la siguiente:</p>
+                           <div class="card border-primary mb-3 text-center">
                                 <div class="card-body">
                                     <blockquote class="card-blockquote">
-                                        <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/orders?order_id=5678</p>
+                                        <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/order?order_id=5678</p>                   
                                     </blockquote>
-                                    <p class="card-title text-grey text-spacey"> Si no hay controles adecuados, un atacante podría ver los pedidos de otros usuarios simplemente cambiando el <code>order_id</code>.</p>
+                                    <p class="card-title text-grey text-spacey"> Si el cliente cambia el parámetro <code>order_id</code>, podría ver los detalles del pedido de otro cliente.</p>
                                 </div>
                             </div>
-                     
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Acceso a Mensajes Privados:</h4>
-                          <p class="card-title text-grey text-spacey"> Una aplicación de mensajería que almacena mensajes con un ID en la URL:</p>
-                            <div class="card border-primary mb-3 text-center">
-                                <div class="card-body">
-                                    <blockquote class="card-blockquote">
-                                        <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/messages?message_id=9999</p>
-                                    </blockquote>
-                                    <p class="card-title text-grey text-spacey">Un atacante podría acceder a mensajes de otros usuarios cambiando el <code>message_id</code>.</p>
-                                </div>
-                            </div>
-                
-                    
-
-                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Técnicas para Encontrar IDORs</h4>
-                    <p class="card-title text-grey text-spacey">Los probadores de penetración pueden utilizar diversas técnicas para identificar IDORs, incluyendo:</h4>
-                    </p>
-                        <p class="card-title text-grey text-spacey"> Modificar sistemáticamente los parámetros en las solicitudes para ver si se puede acceder a datos no autorizados.</p>
-                        <p class="card-title text-grey text-spacey"> Pruebas de Acceso: Intentar acceder a diferentes objetos cambiando los identificadores en la URL.</p>
-                        <p class="card-title text-grey text-spacey"> Automatización: Utilizar herramientas de escaneo de seguridad que identifiquen vulnerabilidades de IDOR.</p>
-                    
-
-                    <h4  class="mt-4 text-grey" style="font-weight: bold;">Mitigación de IDORs</h4>
-                    <p  class="card-title text-grey text-spacey">Para proteger las aplicaciones contra IDORs, se deben implementar las siguientes medidas:<p>
-                    
-                        <p class="card-title text-grey text-spacey"> Control de Acceso Adecuado: Verificar que los usuarios tengan permiso para acceder a los objetos solicitados.</p>
-                        <p class="card-title text-grey text-spacey"> Uso de Identificadores Aleatorios: Evitar el uso de identificadores predecibles y utilizar identificadores aleatorios o hash.</p>
-                        <p class="card-title text-grey text-spacey"> Validación y Saneamiento de Datos: Validar y limpiar todos los parámetros de entrada proporcionados por el usuario.</p> 
-                    
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdzA3e4e8PZf3D02L+P4J3np+3g5/4uAEER2Uj8Kh5v1bh/v19e93zW3FXc3L1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-11j9M8O3F/TLm0q09T1QkMj0G7v5fsWj5S5AvFGIC4hDOW9AmqkHUpV16w/+v7eSz" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pyYY3T8F0uNE6wPfs2bU8+aKuvUUl/Wp6AWqU7t9bF4lt34H04bQ9Gm4hI4SR7u5" crossorigin="anonymous"></script>
 
 </body>
 </html>
