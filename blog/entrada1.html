@@ -141,25 +141,13 @@
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Ejemplos de IDOR</h4>
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Acceso a Cuentas de Clientes:</h4>
                     <p class="card-title text-grey text-spacey"> Imagina un sitio web donde los usuarios pueden acceder a sus cuentas mediante la siguiente URL:</p>
-                    <div class="card border-primary mb-3 text-center">
-                        <div class="card-body">
-                            <blockquote class="card-blockquote">
-                                <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/account?user_id=1001</p>
-                            </blockquote>
-                            <p class="card-title text-grey text-spacey"> Si un atacante cambia el parámetro <code>user_id</code> a <code>1002</code>, podría acceder a la cuenta de otro usuario sin tener permiso.</p>
-                        </div>
-                    </div>
+                    <pre><code class="bash">https://example.com/account?user_id=1001</code></pre>
+                    <p class="card-title text-grey text-spacey"> Si un atacante cambia el parámetro <code>user_id</code> a <code>1002</code>, podría acceder a la cuenta de otro usuario sin tener permiso.</p>
                     
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Descarga de Facturas:</h4>
                     <p class="card-title text-grey text-spacey"> Supongamos que un sistema de facturación permite a los usuarios descargar sus facturas:</p>
-                    <div class="card border-primary mb-3 text-center">
-                        <div class="card-body">
-                            <blockquote class="card-blockquote">
-                                <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/invoice?invoice_id=5001</p>
-                            </blockquote>
-                            <p class="card-title text-grey text-spacey"> Un atacante podría manipular el <code>invoice_id</code> y descargar la factura de otro usuario.</p>
-                        </div>
-                    </div>
+                    <pre><code class="bash">https://example.com/invoice?invoice_id=5001</code></pre>
+                    <p class="card-title text-grey text-spacey"> Un atacante podría manipular el <code>invoice_id</code> y descargar la factura de otro usuario.</p>
 
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Técnicas para Encontrar IDOR</h4>
                     <p class="card-title text-grey text-spacey"> La identificación de IDORs puede requerir tanto habilidades técnicas como un enfoque metódico. Algunas técnicas útiles incluyen:</p>
@@ -192,4 +180,3 @@
 
 </body>
 </html>
-
