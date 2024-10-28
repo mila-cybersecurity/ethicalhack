@@ -66,6 +66,13 @@
         .card-body {
             text-align: left; /* Aligns text to the left */
         }
+
+        /* Estilo para el iframe */
+        #contentFrame {
+            width: 100%;
+            height: 500px; /* Ajusta la altura según sea necesario */
+            border: none;  /* Sin borde para el iframe */
+        }
     </style>
 </head>
 <body>
@@ -109,10 +116,10 @@
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#!">/</a>
+                            <a class="nav-link active" href="#!" onclick="loadContent('links/link1.html')">/</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#!">Links</a>
+                            <a class="nav-link" href="#!" onclick="loadContent('links/link1.html')">Links</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#!"></a>
@@ -128,6 +135,9 @@
                         Las IDORs se producen cuando una aplicación web utiliza identificadores de objetos proporcionados por el usuario sin realizar una adecuada validación de permisos. Esto permite a los atacantes modificar los parámetros en las solicitudes para acceder a recursos no autorizados. Esta vulnerabilidad es un tipo de control de acceso inadecuado y puede llevar a la exposición de datos sensibles o a la realización de acciones no autorizadas en nombre de otros usuarios.
                     </p>
 
+                    <!-- Aquí se añadirá el iframe para cargar contenido -->
+                    <iframe id="contentFrame" src="" frameborder="0"></iframe>
+                  
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Historia y Descubrimiento</h4>
                     <p class="card-title text-grey text-spacey">
                         El término IDOR comenzó a ganar popularidad a mediados de la década de 2000, especialmente después de su inclusión en el <strong>Top Ten de OWASP</strong> en 2007. A medida que las aplicaciones web comenzaron a utilizar más identificadores en las URL y los formularios, se hicieron evidentes los riesgos asociados con la falta de controles de acceso adecuados. Aunque ha habido esfuerzos para abordar esta vulnerabilidad, sigue siendo un problema común en muchas aplicaciones web.
@@ -143,55 +153,22 @@
 
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Ejemplos de IDOR</h4>
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Acceso a Cuentas de Clientes:</h4>
-                    <p class="card-title text-grey text-spacey"> Imagina un sitio web donde los usuarios pueden acceder a sus cuentas mediante la siguiente URL:</p>
-                    <div class="card border-primary mb-3 text-center">
-                        <div class="card-body">
-                            <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/account?user_id=<code>1001</code></p>
-                            <p class="card-title text-grey text-spacey"> Si un atacante cambia el parámetro <code>user_id</code> a <code>1002</code>, podría acceder a la cuenta de otro usuario sin tener permiso.</p>
-                        </div>
-                    </div>
-                    
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Descarga de Facturas:</h4>
-                    <p class="card-title text-grey text-spacey"> Consideremos un sistema de gestión de facturas que permite a los usuarios descargar sus facturas utilizando la siguiente URL:</p>
-                    <div class="card border-primary mb-3 text-center">
-                        <div class="card-body">
-                            <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/invoice?invoice_id=<code>2001</code></p>
-                            <p class="card-title text-grey text-spacey"> Si un atacante intenta acceder a otra factura cambiando el <code>invoice_id</code> a <code>2002</code>, podría descargar información sensible de otro usuario.</p>
-                        </div>
-                    </div>
+                    <p class="card-title text-grey text-spacey"> Imagina un sitio web donde los usuarios pueden acceder a sus cuentas mediante la siguiente URL: <strong>https://ejemplo.com/cuenta?id=12345</strong>. Si un atacante cambia el valor del parámetro <strong>id</strong> a <strong>12346</strong>, podría acceder a la cuenta de otro usuario sin autorización.</p>
 
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Técnicas para Encontrar IDOR</h4>
-                    <p class="card-title text-grey text-spacey"> Existen diversas técnicas que los ciberdelincuentes pueden emplear para encontrar IDORs en aplicaciones web, incluyendo:</p>
-                    <ul class="card-title text-grey text-spacey">
-                        <li>Manipulación de URL: Cambiar los parámetros en las URLs y observar las respuestas del servidor.</li>
-                        <li>Fuzzing: Enviar múltiples solicitudes con diferentes parámetros para descubrir vulnerabilidades.</li>
-                        <li>Inspección de Código: Revisar el código fuente de la aplicación para identificar referencias directas a objetos.</li>
-                    </ul>
-
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Mitigación de IDOR</h4>
-                    <p class="card-title text-grey text-spacey"> Las organizaciones pueden implementar diversas medidas para mitigar las vulnerabilidades IDOR:</p>
-                    <ul class="card-title text-grey text-spacey">
-                        <li>Control de Acceso: Verificar que los usuarios tengan permisos adecuados para acceder a los recursos solicitados.</li>
-                        <li>Uso de Identificadores Aleatorios: Evitar el uso de identificadores predecibles en las URL.</li>
-                        <li>Auditoría y Monitoreo: Realizar auditorías regulares y monitorear el acceso a recursos sensibles.</li>
-                    </ul>
-
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Conclusión</h4>
-                    <p class="card-title text-grey text-spacey"> Las IDORs son una vulnerabilidad seria en la seguridad de aplicaciones web que pueden tener graves consecuencias. Es crucial que las organizaciones implementen medidas adecuadas para mitigar estos riesgos y proteger la información sensible de los usuarios.</p>
-             
-                    
-                   <div class="text-center"> <!-- Se añadió esta línea para centrar el botón -->
-                  <a href="../blog.html" class="btn btn-primary mt-4">Volver</a> <!-- Ajustar la ruta -->
-                  </div> <!-- Cierre del div añadido -->
-            
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Acceso a Documentos Privados:</h4>
+                    <p class="card-title text-grey text-spacey">Si una aplicación permite a los usuarios descargar documentos utilizando un parámetro en la URL, como <strong>https://ejemplo.com/documento?id=56789</strong>, un atacante podría manipular el <strong>id</strong> para descargar documentos a los que no debería tener acceso.</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT9T3T5sZ5/6L5h8L1owwKxQCh10fVu5a/vo0G2y0PTcQeyzQ6U" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-JjSmul/8d4e1IPT+Wl+k5zlfzB5z3ou3rE88uY6K9cKX5a8B3/mAO+Qd7p1wqR8E" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-C8LJ24LGAxTg1xSyH3M72d8D8l6q7H5x6eB5W07qF1u9yKmfXuwlf/l9pNde0v1g" crossorigin="anonymous"></script>
+
+<script>
+    // Función para cargar contenido en el iframe
+    function loadContent(url) {
+        document.getElementById('contentFrame').src = url;
+    }
+</script>
 
 </body>
 </html>
