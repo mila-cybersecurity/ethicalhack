@@ -26,12 +26,6 @@
             object-fit: cover;
         }
 
-        /* Para igualar la altura del texto de las tarjetas */
-        .card-title.text-grey.text-spacey {
-            flex-grow: 1; /* Permitir que el título crezca */
-            min-height: 70px; /* Ajusta esta altura según sea necesario */
-        }
-
         /* Para dispositivos móviles: mostrar menú sin colapsar */
         @media (max-width: 767.98px) {
             .navbar-collapse {
@@ -51,6 +45,20 @@
             .portfolio-title {
                 font-size: 2.5rem; /* reducir solo en pantallas pequeñas */
             }
+        }
+
+        /* Asegurar que todos los botones estén alineados */
+        .card-body h6 {
+            flex-grow: 1; /* Permitir que el título crezca */
+            margin-bottom: 0; /* Evitar margen extra en la parte inferior */
+        }
+
+        /* Ajuste específico para la tarjeta IDOR */
+        .card:nth-child(1) .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%; /* Asegura que el contenido ocupe toda la altura */
         }
     </style>
 </head>
