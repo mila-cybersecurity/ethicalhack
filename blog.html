@@ -25,6 +25,14 @@
             height: 200px; /* Ajusta la altura de las imágenes de las tarjetas */
             object-fit: cover;
         }
+        
+        /* Alineación del botón de la primera tarjeta */
+        .first-card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
+        }
 
         /* Para dispositivos móviles: mostrar menú sin colapsar */
         @media (max-width: 767.98px) {
@@ -86,7 +94,7 @@
         <div class="col-md-4">
             <div class="card mb-4">
                 <img class="card-img-top" src="images/idor.jpg" alt="Card image cap">
-                <div class="card-body">
+                <div class="card-body first-card-body"> <!-- Cambiado para alinear el botón -->
                     <h4 class="card-title text-grey text-spacey">IDOR</h4>
                     <h6 class="card-title text-grey text-spacey">IDOR (Insecure Direct Object Reference) es una vulnerabilidad que permite a un usuario acceder a objetos directamente a través de parámetros en la URL sin la validación adecuada de permisos. Esto puede llevar a la exposición de datos sensibles y a la ejecución de acciones no autorizadas en la aplicación. En esta entrada, abordaremos su impacto y cómo prevenirla.</h6>
                     <div class="mt-auto"> <!-- Asegúrate de que esta línea se mantenga igual -->
