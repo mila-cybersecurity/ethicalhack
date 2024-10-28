@@ -120,14 +120,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#!" onclick="showTab('links', event)">Links</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#!"></a>
+                        </li>
                     </ul>
                 </div>
-
-                <!-- Botón Volver -->
-                <div class="btn-container text-center"> <!-- Contenedor para centrar el botón -->
-                    <a href="../blog.html" class="btn btn-primary mt-4">Volver</a> <!-- Ajustar la ruta -->
-                </div>
-
                 <div class="card-body">
                     <!-- Contenido de la pestaña de Información -->
                     <div id="info" class="tab-content">
@@ -153,67 +150,80 @@
                         <p class="card-title text-grey text-spacey">Consecuencias Legales: Las violaciones de datos pueden llevar a acciones legales y multas significativas, especialmente si se trata de información regulada.</p>
 
                         <h4 class="mt-4 text-grey" style="font-weight: bold;">Ejemplos de IDOR</h4>
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">1. Acceso a Documentos</h4>
-                        <p class="card-title text-grey text-spacey">Un usuario podría acceder a documentos que no le pertenecen cambiando un ID en la URL, como http://example.com/documents?id=123 a http://example.com/documents?id=124.</p>
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">2. Cambio de Información de Usuario</h4>
-                        <p class="card-title text-grey text-spacey">Un atacante podría cambiar el ID de su cuenta para acceder a la información de otra cuenta simplemente modificando el ID en el parámetro de la solicitud.</p>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Acceso a Cuentas de Clientes:</h4>
+                        <p class="card-title text-grey text-spacey"> Imagina un sitio web donde los usuarios pueden acceder a sus cuentas mediante la siguiente URL:</p>
+                        <div class="card border-primary mb-3 text-center">
+                            <div class="card-body">
+                                <p class="mt-4 text-grey" style="font-weight: bold;">https://ejemplo.com/usuario?id=12345</p>
+                            </div>
+                        </div>
+                        <p class="card-title text-grey text-spacey">Si un atacante cambia el ID en la URL a uno de otro usuario, podría acceder a la cuenta de ese usuario sin autorización.</p>
 
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Técnicas para Encontrar IDORs</h4>
-                        <p class="card-title text-grey text-spacey">Los testers de seguridad pueden buscar IDORs siguiendo algunas técnicas, como:</p>
-                        <p class="card-title text-grey text-spacey">1. Enumeración: Probar diferentes ID para ver si se puede acceder a recursos no autorizados.</p>
-                        <p class="card-title text-grey text-spacey">2. Análisis de Parámetros: Revisar las URL y los parámetros de solicitud en busca de identificadores que puedan ser manipulados.</p>
-                        <p class="card-title text-grey text-spacey">3. Revisión de Código: Analizar el código fuente para encontrar controles de acceso débiles o ausentes.</p>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Subida de Archivos No Autorizada:</h4>
+                        <p class="card-title text-grey text-spacey"> En un sistema de gestión de archivos, un atacante podría modificar el ID de un archivo en la URL para acceder a archivos que no debería poder ver o modificar.</p>
 
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Medidas de Mitigación</h4>
-                        <p class="card-title text-grey text-spacey">Las organizaciones pueden implementar varias medidas para mitigar las IDORs:</p>
-                        <p class="card-title text-grey text-spacey">1. Validación de Acceso: Siempre validar que el usuario tiene permiso para acceder al objeto solicitado.</p>
-                        <p class="card-title text-grey text-spacey">2. No Exponer IDs Sensibles: Evitar el uso de IDs secuenciales que puedan ser fácilmente adivinados.</p>
-                        <p class="card-title text-grey text-spacey">3. Auditar y Monitorear: Realizar auditorías de seguridad regulares y monitorear los accesos a los recursos sensibles.</p>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Mitigación de IDOR</h4>
+                        <p class="card-title text-grey text-spacey">Para prevenir las IDORs, las organizaciones deben implementar controles de acceso adecuados. Algunas de las mejores prácticas incluyen:</p>
+                        <ul class="text-grey">
+                            <li>Verificación de Permisos: Siempre verifique que el usuario tenga permiso para acceder al objeto solicitado.</li>
+                            <li>Uso de Identificadores Aleatorios: En lugar de utilizar identificadores secuenciales predecibles, considere el uso de identificadores aleatorios o UUIDs.</li>
+                            <li>Auditoría Regular: Realice auditorías de seguridad periódicas para identificar y corregir posibles vulnerabilidades en su aplicación.</li>
+                        </ul>
+
+                        <div class="btn-container">
+                            <a href="../blog.html" class="btn btn-primary">Volver</a> <!-- Botón corregido -->
+                        </div>
                     </div>
 
                     <!-- Contenido de la pestaña de Links -->
-                    <div id="links" class="tab-content" style="display:none;">
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Links Importantes</h4>
-                        <ul class="list-group">
-                            <li class="list-group-item"><a href="https://owasp.org/www-community/attacks/Insecure_Direct_Object_Reference" target="_blank">OWASP - Insecure Direct Object Reference</a></li>
-                            <li class="list-group-item"><a href="https://www.acunetix.com/blog/articles/insecure-direct-object-references-idor/" target="_blank">Acunetix - Insecure Direct Object References (IDOR)</a></li>
-                            <li class="list-group-item"><a href="https://www.owasp.org/images/7/7a/OWASP_Top_Ten_2017_Translated_Spanish.pdf" target="_blank">OWASP Top Ten 2017 - Español</a></li>
+                    <div id="links" class="tab-content" style="display: none;">
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Links Recomendados</h4>
+                        <ul class="text-grey">
+                            <li><a href="https://owasp.org/www-project-top-ten/2017/A1_2017-Injection.html" target="_blank">OWASP: Insecure Direct Object Reference</a></li>
+                            <li><a href="https://www.acunetix.com/blog/articles/insecure-direct-object-reference-idor/" target="_blank">Acunetix: Insecure Direct Object Reference</a></li>
+                            <li><a href="https://www.veracode.com/blog/2019/10/insecure-direct-object-references-idor" target="_blank">Veracode: Insecure Direct Object References (IDOR)</a></li>
+                            <li><a href="https://www.cybintsolutions.com/insecure-direct-object-references-idor/" target="_blank">Cybint: Insecure Direct Object References (IDOR)</a></li>
                         </ul>
+                        <div class="btn-container">
+                            <a href="../blog.html" class="btn btn-primary">Volver</a> <!-- Botón corregido -->
+                        </div>
                     </div>
-                </div> <!-- Fin de card-body -->
-            </div> <!-- Fin de card -->
-        </div> <!-- Fin de col-md-10 -->
-    </div> <!-- Fin de row -->
-</div> <!-- Fin de container -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<!-- JavaScript Section -->
+<!-- Footer -->
+<div class="footer bg-dark text-white text-center">
+    <div class="container">
+        <p>© 2023 Tu Nombre. Todos los derechos reservados.</p>
+    </div>
+</div>
+
 <script>
     function showTab(tab, event) {
-        event.preventDefault(); // Evitar el comportamiento por defecto del enlace
-        // Ocultar todas las pestañas
-        document.querySelectorAll('.tab-content').forEach(function(tabContent) {
+        // Hide all tabs
+        document.querySelectorAll('.tab-content').forEach((tabContent) => {
             tabContent.style.display = 'none';
         });
-        // Mostrar la pestaña seleccionada
-        document.getElementById(tab).style.display = 'block';
         
-        // Cambiar la clase activa de los enlaces de pestañas
-        document.querySelectorAll('.nav-link').forEach(function(link) {
+        // Show the selected tab
+        document.getElementById(tab).style.display = 'block';
+
+        // Set active class for tabs
+        document.querySelectorAll('.nav-link').forEach((link) => {
             link.classList.remove('active');
         });
         event.target.classList.add('active');
     }
-
-    // Mostrar por defecto la pestaña de información
-    document.addEventListener("DOMContentLoaded", function() {
-        showTab('info', event);
-    });
+    
+    // Show the default tab
+    showTab('info', event);
 </script>
 
-<!-- Optional JavaScript -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7xj4NAljI5gWlW4cK8M41zdYf1Pb8h8R5d3kBrj9G8Q2Hq0" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-JZyNq59t7kZ8GpZg2f/7C26tT2S3Xp5Sk3zCq0n8hW7bUjIlBgFAq5R01uGCE5A" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-9aY7z7F0F4Ri2cQh6vM09f8/Pr5tB5j/8D8Z7hGAVcT1gR3V6A0ptPavJ4+7I6w" crossorigin="anonymous"></script>
+<!-- Bootstrap JS (Optional) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT0P9a10KglGe5jQ2r1se4s0n7F0d6Yv4D3U5cB0j4O0lqD4KQ1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-Wx4u8YdM2VZTnZCOZZd73uT4Ku4mV71e2Gk7wxz1BB2rJsl3tiHgHcD+xlT0Z4gI" crossorigin="anonymous"></script>
 </body>
 </html>
-
