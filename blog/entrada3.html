@@ -102,7 +102,7 @@
 </div>
 
 <!-- Main content area -->
-<div class="container">
+ <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card text-center">
@@ -117,6 +117,7 @@
                     </ul>
                 </div>
                 <div class="card-body">
+                    <!-- Contenido de la pestaña de Información -->
                     <div id="info" class="tab-content">
                         <h4 class="mt-4 text-grey" style="font-weight: bold;">¿Qué es XSS?</h4>
                         <p class="card-title text-grey text-spacey">
@@ -155,72 +156,62 @@
                         </div>
 
                         <h4 class="mt-4 text-grey" style="font-weight: bold;">2. Ejemplo de XSS Almacenado:</h4>
-                        <p class="card-title text-grey text-spacey">En este caso, el script malicioso se almacena en la base de datos del servidor y se ejecuta cada vez que la página es visitada por un usuario:</p>
+                        <p class="card-title text-grey text-spacey">Un atacante publica un comentario en un blog que contiene un script malicioso:</p>
                         <div class="card border-primary mb-3 text-center">
                             <div class="card-body">
-                                <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/comments?text=<code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code></p>
-                                <p class="card-title text-grey text-spacey">Cuando un usuario visita la página de comentarios, el script se ejecuta en su navegador.</p>
+                                <p class="mt-4 text-grey" style="font-weight: bold;">&lt;script&gt;alert('XSS Almacenado')&lt;/script&gt;</p>
+                                <p class="card-title text-grey text-spacey">Este script se almacena en la base de datos y se ejecuta cada vez que se carga la página de comentarios.</p>
                             </div>
                         </div>
-
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">3. Ejemplo de XSS DOM:</h4>
-                        <p class="card-title text-grey text-spacey">En este tipo de ataque, el script se ejecuta como resultado de la manipulación del Document Object Model (DOM):</p>
-                        <div class="card border-primary mb-3 text-center">
-                            <div class="card-body">
-                                <p class="mt-4 text-grey" style="font-weight: bold;">document.getElementById('output').innerHTML = '<script>alert("XSS")</script>';</p>
-                                <p class="card-title text-grey text-spacey">Esto inyecta un script en el DOM que se ejecuta cuando la página se carga.</p>
-                            </div>
-                        </div>
-
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Conclusiones</h4>
-                        <p class="card-title text-grey text-spacey">
-                            La vulnerabilidad XSS sigue siendo un desafío para los desarrolladores de aplicaciones web. Es esencial implementar medidas de mitigación, como la validación y codificación de entrada y la utilización de políticas de seguridad de contenido (CSP).
-                        </p>
                     </div>
 
-                    <div id="links" class="tab-content" style="display:none;">
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Enlaces Útiles</h4>
+                    <!-- Contenido de la pestaña de Links -->
+                    <div id="links" class="tab-content" style="display: none;">
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Recursos adicionales sobre XSS</h4>
                         <ul class="text-grey text-spacey">
-                            <li><a href="https://owasp.org/www-project-top-ten/" target="_blank">OWASP Top Ten</a> - Información sobre las vulnerabilidades más críticas en aplicaciones web.</li>
-                            <li><a href="https://www.acs.com.hk/en/products/1028/acr38-smart-card-reader/" target="_blank">Vulnerabilidades de XSS en la web</a> - Un análisis detallado sobre las vulnerabilidades XSS.</li>
-                            <li><a href="https://portswigger.net/web-security/cross-site-scripting" target="_blank">PortSwigger - XSS</a> - Recursos y explicaciones sobre XSS y sus tipos.</li>
+                            <li><a href="https://owasp.org/www-community/attacks/xss/" target="_blank">OWASP - Cross-Site Scripting (XSS)</a></li>
+                            <li><a href="https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet" target="_blank">OWASP XSS Filter Evasion Cheat Sheet</a></li>
+                            <li><a href="https://www.acs.com.hk/en/products/1028/acr38-smart-card-reader/" target="_blank">Cómo mitigar XSS</a></li>
                         </ul>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Footer Section -->
+<footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+        <p class="mb-0">© 2024 Mi Sitio Web</p>
+    </div>
+</footer>
+
 <script>
-    // Show the specified tab and hide others
-    function showTab(tabId, event) {
-        // Prevent the default anchor behavior
+    function showTab(tabName, event) {
+        // Prevent default anchor click behavior
         event.preventDefault();
 
-        // Hide all tab contents
+        // Hide all tabs
         const tabContents = document.querySelectorAll('.tab-content');
-        tabContents.forEach((content) => {
+        tabContents.forEach(content => {
             content.style.display = 'none';
         });
 
-        // Remove 'active' class from all tabs
-        const tabs = document.querySelectorAll('.nav-link');
-        tabs.forEach((tab) => {
-            tab.classList.remove('active');
+        // Show the selected tab
+        const activeTab = document.getElementById(tabName);
+        activeTab.style.display = 'block';
+
+        // Remove 'active' class from all nav links
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.classList.remove('active');
         });
 
-        // Show the selected tab content
-        document.getElementById(tabId).style.display = 'block';
-
-        // Add 'active' class to the clicked tab
-        event.target.classList.add('active');
+        // Add 'active' class to the clicked nav link
+        event.currentTarget.classList.add('active');
     }
-
-    // Initialize with the "info" tab open
-    document.addEventListener("DOMContentLoaded", function() {
-        showTab('info', {target: document.querySelector('.nav-link.active')});
-    });
 </script>
 
 </body>
