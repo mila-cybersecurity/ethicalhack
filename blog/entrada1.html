@@ -41,6 +41,27 @@
         .text-grey {
             font-size: 0.9rem; /* Smaller text for body content */
         }
+        
+        /* Full height card */
+        .card {
+            height: calc(100vh - 160px); /* Full height minus jumbotron and navbar */
+            width: 100%;                 /* Full width of the parent column */
+            max-width: 900px;            /* Limita el ancho máximo en pantallas grandes */
+            margin-top: 0;               /* No margin on top */
+            border-radius: 0;            /* Remove border radius to fit better */
+        }
+
+        /* Adjust container */
+        .container {
+            padding: 0; /* Remove padding from container */
+            height: 100%; /* Full height for container */
+        }
+
+        /* Ensure body takes full height */
+        body {
+            height: 100vh;
+            margin: 0; /* Remove default margin */
+        }
     </style>
 </head>
 <body>
@@ -69,7 +90,7 @@
 </div>
 
 <!-- Jumbotron Section -->
-<div class="jumbotron bg-transparent mb-0" style="padding-bottom: 0;">
+<div class="jumbotron bg-transparent mb-0">
     <div class="container">
         <h1 class="display-2">Todo sobre IDOR<span class="vim-caret">/</span></h1> <!-- Título actualizado -->
         <div class="lead mb-3 text-mono text-success">Insecure Direct Object Reference </div> <!-- Texto adicional -->
@@ -77,9 +98,9 @@
 </div>
 
 <!-- Main content area -->
-<div class="container py-5 min-vh-100 d-flex align-items-center">
-    <div class="row justify-content-center w-100">
-        <div class="col-md-8">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10"> <!-- Ajustado a col-md-10 para mayor anchura en pantalla -->
             <div class="card text-center">
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
@@ -111,54 +132,61 @@
                     </p>
 
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Impacto de las IDOR</h4>
-                     <p class="card-title text-grey text-spacey">
+                    <p class="card-title text-grey text-spacey">
                         Las IDORs pueden tener repercusiones graves tanto para los usuarios como para las organizaciones. Algunas de las consecuencias más comunes incluyen:
-                     </p>
+                    </p>
                     <p class="card-title text-grey text-spacey"> Exposición de Datos Sensibles: Los atacantes pueden acceder a información personal identificable (PII), registros médicos, información financiera y más.</p>
                     <p class="card-title text-grey text-spacey">Pérdida de Confianza: Si un usuario se entera de que su información ha sido comprometida, puede perder la confianza en la organización, lo que puede afectar la reputación de la empresa.</p>
-                    <p  class="card-title text-grey text-spacey">Consecuencias Legales: Las violaciones de datos pueden llevar a acciones legales y multas significativas, especialmente si se trata de información regulada.</p>
-                    
+                    <p class="card-title text-grey text-spacey">Consecuencias Legales: Las violaciones de datos pueden llevar a acciones legales y multas significativas, especialmente si se trata de información regulada.</p>
 
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Ejemplos de IDOR</h4>
-                   
-                      <h4 class="mt-4 text-grey" style="font-weight: bold;">Acceso a Cuentas de Clientes:</h4>
-                       <p class="card-title text-grey text-spacey"> Imagina un sitio web donde los usuarios pueden acceder a sus cuentas mediante la siguiente URL:</p>
-                            <div class="card border-primary mb-3 text-center">
-                                <div class="card-body">
-                                    <blockquote class="card-blockquote">
-                                        <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/account?user_id=1001</p>
-                                    </blockquote>
-                                     <p class="card-title text-grey text-spacey"> Si un atacante cambia el parámetro <code>user_id</code> a <code>1002</code>, podría acceder a la cuenta de otro usuario sin tener permiso.</p>
-                                </div>
-                            </div>
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Acceso a Cuentas de Clientes:</h4>
+                    <p class="card-title text-grey text-spacey"> Imagina un sitio web donde los usuarios pueden acceder a sus cuentas mediante la siguiente URL:</p>
+                    <div class="card border-primary mb-3 text-center">
+                        <div class="card-body">
+                            <blockquote class="card-blockquote">
+                                <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/account?user_id=1001</p>
+                            </blockquote>
+                            <p class="card-title text-grey text-spacey"> Si un atacante cambia el parámetro <code>user_id</code> a <code>1002</code>, podría acceder a la cuenta de otro usuario sin tener permiso.</p>
+                        </div>
+                    </div>
                     
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Descarga de Archivos:</h4>
-                           <p class="card-title text-grey text-spacey"> Considere una URL que permite a los usuarios descargar archivos de su cuenta:</p>
-                            <div class="card border-primary mb-3 text-center">
-                                <div class="card-body">
-                                    <blockquote class="card-blockquote">
-                                        <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/download?file_id=1234</p>                    
-                                    </blockquote>
-                                    <p class="card-title text-grey text-spacey"> Un atacante podría modificar <code>file_id</code> para descargar archivos de otros usuarios.</p>
-                                </div>
-                            </div>
-                       
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Consulta de Pedidos:</h4>
-                           <p class="card-title text-grey text-spacey"> Otro ejemplo común es cuando el cliente puede ver el estado de su pedido mediante una URL como la siguiente:</p>
-                           <div class="card border-primary mb-3 text-center">
-                                <div class="card-body">
-                                    <blockquote class="card-blockquote">
-                                        <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/order?order_id=5678</p>                   
-                                    </blockquote>
-                                    <p class="card-title text-grey text-spacey"> Si el cliente cambia el parámetro <code>order_id</code>, podría ver los detalles del pedido de otro cliente.</p>
-                                </div>
-                            </div>
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Descarga de Archivos:</h4>
+                    <p class="card-title text-grey text-spacey"> Considere una URL que permite a los usuarios descargar sus facturas:</p>
+                    <div class="card border-primary mb-3 text-center">
+                        <div class="card-body">
+                            <blockquote class="card-blockquote">
+                                <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/invoice?invoice_id=5001</p>
+                            </blockquote>
+                            <p class="card-title text-grey text-spacey"> Un atacante podría manipular el <code>invoice_id</code> y descargar la factura de otro usuario.</p>
+                        </div>
+                    </div>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Técnicas para Encontrar IDOR</h4>
+                    <p class="card-title text-grey text-spacey"> La identificación de IDORs puede requerir tanto habilidades técnicas como un enfoque metódico. Algunas técnicas útiles incluyen:</p>
+                    <p class="card-title text-grey text-spacey"> Análisis de la URL: Observar los parámetros en las URLs puede revelar patrones que sugieren la posibilidad de IDOR.</p>
+                    <p class="card-title text-grey text-spacey">Pruebas de fuerza bruta: Probar diferentes identificadores o valores en los parámetros puede ayudar a descubrir vulnerabilidades.</p>
+                    <p class="card-title text-grey text-spacey">Revisar la documentación: Revisar la documentación de la API o de la aplicación puede dar pistas sobre cómo funcionan los permisos y la autorización.</p>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Medidas de Mitigación</h4>
+                    <p class="card-title text-grey text-spacey"> Para protegerse contra IDORs, es crucial implementar controles de acceso adecuados:</p>
+                    <p class="card-title text-grey text-spacey">Validación de Permisos: Asegúrese de que los usuarios solo puedan acceder a los recursos que están autorizados a ver.</p>
+                    <p class="card-title text-grey text-spacey">Obfuscación de Identificadores: Utilizar identificadores que no sean fácilmente manipulables por los usuarios.</p>
+                    <p class="card-title text-grey text-spacey">Pruebas de Seguridad: Realizar pruebas de seguridad periódicas para identificar y corregir vulnerabilidades antes de que puedan ser explotadas.</p>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Conclusiones</h4>
+                    <p class="card-title text-grey text-spacey">Las IDORs son una vulnerabilidad crítica que puede ser explotada por ciberdelincuentes para acceder a información sensible. Con la implementación de prácticas de codificación seguras y una revisión periódica de la seguridad, es posible mitigar este riesgo y proteger tanto a los usuarios como a las organizaciones. A medida que el panorama de la seguridad sigue evolucionando, es fundamental mantenerse informado y actualizado sobre las mejores prácticas para protegerse contra IDORs y otras amenazas.</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7zI3mJ1eF4l1/6e+2wLx6WlX2z5n5n6GRX2yy8W6ek7q2h/j" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-JZ45Spejh4U02d8j6ZcV/a7N3j+6ST3lL3/eUu3I0O8x0hxHkjw4x4Fku+4xg2X" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-1CmrxMRARb6a6I87n9NnP4i7grxIOW8tTwT0gEq6a3r88U2gZxDANn9/+6EXs4U5" crossorigin="anonymous"></script>
+
 </body>
 </html>
-
