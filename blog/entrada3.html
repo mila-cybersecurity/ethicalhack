@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fullscreen Card</title>
+    <title>Centered Card</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Configura el contenedor para ocupar el 100% de la pantalla */
+        /* Configura el contenedor para ocupar toda la pantalla y centrar la tarjeta */
         body, html {
             height: 100%;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: #f8f9fa; /* Color de fondo visible */
         }
 
         .card {
-            width: 100vw; /* Ancho total de la pantalla */
-            height: 100vh; /* Alto total de la pantalla */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            width: 90%;          /* Ancho de la tarjeta como un porcentaje del viewport */
+            max-width: 600px;    /* Ancho máximo para limitar en pantallas grandes */
+            height: 30cm;        /* Altura aproximada de 30 cm */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
         }
     </style>
 </head>
