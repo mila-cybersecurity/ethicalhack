@@ -141,6 +141,7 @@
                             El término IDOR comenzó a ganar popularidad a mediados de la década de 2000, especialmente después de su inclusión en el <strong>Top Ten de OWASP</strong> en 2007. A medida que las aplicaciones web comenzaron a utilizar más identificadores en las URL y los formularios, se hicieron evidentes los riesgos asociados con la falta de controles de acceso adecuados. Aunque ha habido esfuerzos para abordar esta vulnerabilidad, sigue siendo un problema común en muchas aplicaciones web.
                         </p>
 
+                        <!-- Nueva información agregada -->
                         <h4 class="mt-4 text-grey" style="font-weight: bold;">Impacto de las IDOR</h4>
                         <p class="card-title text-grey text-spacey">
                             Las IDORs pueden tener repercusiones graves tanto para los usuarios como para las organizaciones. Algunas de las consecuencias más comunes incluyen:
@@ -154,21 +155,38 @@
                         <p class="card-title text-grey text-spacey"> Imagina un sitio web donde los usuarios pueden acceder a sus cuentas mediante la siguiente URL:</p>
                         <div class="card border-primary mb-3 text-center">
                             <div class="card-body">
-                                <p class="mt-4 text-grey" style="font-weight: bold;">https://ejemplo.com/usuario?id=12345</p>
+                                <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/account?user_id=<code>1001</code></p>
+                                <p class="card-title text-grey text-spacey"> Si un atacante cambia el parámetro <code>user_id</code> a <code>1002</code>, podría acceder a la cuenta de otro usuario sin tener permiso.</p>
                             </div>
                         </div>
-                        <p class="card-title text-grey text-spacey">Si un atacante cambia el ID en la URL a uno de otro usuario, podría acceder a la cuenta de ese usuario sin autorización.</p>
+                        
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Descarga de Facturas:</h4>
+                        <p class="card-title text-grey text-spacey"> Consideremos un sistema de gestión de facturas que permite a los usuarios descargar sus facturas utilizando la siguiente URL:</p>
+                        <div class="card border-primary mb-3 text-center">
+                            <div class="card-body">
+                                <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/invoice?invoice_id=<code>2001</code></p>
+                                <p class="card-title text-grey text-spacey"> Si un atacante intenta acceder a otra factura cambiando el <code>invoice_id</code> a <code>2002</code>, podría descargar información sensible de otro usuario.</p>
+                            </div>
+                        </div>
 
-                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Subida de Archivos No Autorizada:</h4>
-                        <p class="card-title text-grey text-spacey"> En un sistema de gestión de archivos, un atacante podría modificar el ID de un archivo en la URL para acceder a archivos que no debería poder ver o modificar.</p>
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Técnicas para Encontrar IDOR</h4>
+                        <p class="card-title text-grey text-spacey"> Existen diversas técnicas que los ciberdelincuentes pueden emplear para encontrar IDORs en aplicaciones web, incluyendo:</p>
+                        <ul class="card-title text-grey text-spacey">
+                            <li>Manipulación de URL: Cambiar los parámetros en las URLs y observar las respuestas del servidor.</li>
+                            <li>Fuzzing: Enviar múltiples solicitudes con diferentes parámetros para descubrir vulnerabilidades.</li>
+                            <li>Inspección de Código: Revisar el código fuente de la aplicación para identificar referencias directas a objetos.</li>
+                        </ul>
 
                         <h4 class="mt-4 text-grey" style="font-weight: bold;">Mitigación de IDOR</h4>
-                        <p class="card-title text-grey text-spacey">Para prevenir las IDORs, las organizaciones deben implementar controles de acceso adecuados. Algunas de las mejores prácticas incluyen:</p>
-                        <ul class="text-grey">
-                            <li>Verificación de Permisos: Siempre verifique que el usuario tenga permiso para acceder al objeto solicitado.</li>
-                            <li>Uso de Identificadores Aleatorios: En lugar de utilizar identificadores secuenciales predecibles, considere el uso de identificadores aleatorios o UUIDs.</li>
-                            <li>Auditoría Regular: Realice auditorías de seguridad periódicas para identificar y corregir posibles vulnerabilidades en su aplicación.</li>
+                        <p class="card-title text-grey text-spacey"> Las organizaciones pueden implementar diversas medidas para mitigar las vulnerabilidades IDOR:</p>
+                        <ul class="card-title text-grey text-spacey">
+                            <li>Control de Acceso: Verificar que los usuarios tengan permisos adecuados para acceder a los recursos solicitados.</li>
+                            <li>Uso de Identificadores Aleatorios: Evitar el uso de identificadores predecibles en las URL.</li>
+                            <li>Auditoría y Monitoreo: Realizar auditorías regulares y monitorear el acceso a recursos sensibles.</li>
                         </ul>
+
+                        <h4 class="mt-4 text-grey" style="font-weight: bold;">Conclusión</h4>
+                        <p class="card-title text-grey text-spacey"> Las IDORs son una vulnerabilidad seria en la seguridad de aplicaciones web que pueden tener graves consecuencias.</p>
 
                         <div class="btn-container">
                             <a href="../blog.html" class="btn btn-primary">Volver</a> <!-- Botón corregido -->
