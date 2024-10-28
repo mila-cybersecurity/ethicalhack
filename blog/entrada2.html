@@ -66,6 +66,22 @@
         .card-body {
             text-align: left; /* Aligns text to the left */
         }
+
+        /* Style for the button */
+        .btn-volver {
+            margin-top: 20px;
+            background-color: #4CAF50; /* Green color for the button */
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 0;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .btn-volver:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
     </style>
 </head>
 <body>
@@ -125,6 +141,11 @@
                         SQL Injection (SQLi) es una de las vulnerabilidades de seguridad más comunes que afecta a las aplicaciones web. Ocurre cuando un atacante puede ejecutar comandos SQL maliciosos en la base de datos de una aplicación al manipular las entradas del usuario.
                     </p>
 
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Historia de SQL Injection</h4>
+                    <p class="card-title text-grey text-spacey">
+                        La vulnerabilidad de SQL Injection fue descubierta en los años 90, con algunos de los primeros informes documentando ataques en aplicaciones web que utilizaban bases de datos SQL. A medida que el uso de bases de datos en línea creció, también lo hicieron los métodos de ataque. En 1998, se publicó un artículo por primera vez que discutía la inyección SQL como una técnica de explotación, señalando su potencial destructivo. Con el tiempo, muchas organizaciones han reconocido la importancia de protegerse contra este tipo de ataque, pero todavía ocurre en aplicaciones que no validan adecuadamente las entradas.
+                    </p>
+
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Funcionamiento de SQL Injection</h4>
                     <p class="card-title text-grey text-spacey">
                         La inyección SQL permite a un atacante interferir en las consultas que una aplicación web hace a su base de datos. Si una aplicación no valida adecuadamente las entradas del usuario, puede ser posible inyectar código SQL que afecte a la ejecución de consultas. Por ejemplo, si un formulario de inicio de sesión permite a un usuario ingresar un nombre de usuario y una contraseña sin validar, un atacante podría usar el siguiente input para el nombre de usuario:
@@ -146,27 +167,27 @@
                         </div>
                     </div>
 
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Filtrado de Datos:</h4>
-                    <p class="card-title text-grey text-spacey"> Un atacante puede intentar extraer datos sensibles de la base de datos utilizando una inyección SQL. Por ejemplo:</p>
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Extracción de datos:</h4>
+                    <p class="card-title text-grey text-spacey"> Un atacante puede inyectar código para extraer datos sensibles, como:</p>
                     <div class="card border-primary mb-3 text-center">
                         <div class="card-body">
-                            <p class="mt-4 text-grey" style="font-weight: bold;">1' UNION SELECT username, password FROM users --</p>
-                            <p class="card-title text-grey text-spacey"> Esto permite al atacante combinar resultados de múltiples consultas, revelando información confidencial.</p>
+                            <p class="mt-4 text-grey" style="font-weight: bold;">'; DROP TABLE users; --</p>
+                            <p class="card-title text-grey text-spacey"> Esto podría eliminar la tabla de usuarios de la base de datos.</p>
                         </div>
                     </div>
 
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Mejores Prácticas para Prevenir SQL Injection</h4>
-                    <p class="card-title text-grey text-spacey"> Para protegerse contra la inyección SQL, las organizaciones pueden implementar las siguientes medidas:</p>
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">¿Cómo prevenir SQL Injection?</h4>
                     <ul class="card-title text-grey text-spacey">
-                        <li>Validación y Sanitización de Entradas: Asegurarse de que todos los datos de entrada sean válidos y seguros.</li>
-                        <li>Uso de Consultas Preparadas: Las consultas preparadas con parámetros evitan la inyección de código SQL al separar los comandos SQL de los datos.</li>
-                        <li>Control de Acceso: Limitar los privilegios de los usuarios en la base de datos, asegurando que incluso si hay una inyección, el daño potencial sea limitado.</li>
-                        <li>Auditorías Regulares: Realizar auditorías y pruebas de seguridad para identificar y remediar posibles vulnerabilidades.</li>
+                        <li>Usar consultas preparadas y parametrizadas.</li>
+                        <li>Validar y limpiar todas las entradas del usuario.</li>
+                        <li>Aplicar el principio de privilegios mínimos en la base de datos.</li>
+                        <li>Implementar un firewall de aplicaciones web.</li>
                     </ul>
 
                     <h4 class="mt-4 text-grey" style="font-weight: bold;">Conclusión</h4>
                     <p class="card-title text-grey text-spacey"> SQL Injection es una amenaza grave que puede comprometer la integridad y la confidencialidad de los datos. Es fundamental que las organizaciones comprendan cómo funciona SQLi y apliquen las mejores prácticas de seguridad para proteger sus aplicaciones web.</p>
-<!-- Botón Volver -->
+                    
+                    <!-- Botón Volver -->
                     <a href="../index.html" class="btn btn-volver">Volver</a> <!-- Ajustar la ruta -->
                 </div>
             </div>
