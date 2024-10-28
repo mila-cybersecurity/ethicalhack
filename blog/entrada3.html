@@ -102,20 +102,17 @@
 </div>
 
 <!-- Main content area -->
-<div class="container">
+ <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10"> <!-- Ajustado a col-md-10 para mayor anchura en pantalla -->
+        <div class="col-md-10">
             <div class="card text-center">
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#!">/</a>
+                            <a class="nav-link active" href="#!" onclick="showTab('info', event)">Información</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#!">Links</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#!"></a>
+                            <a class="nav-link" href="#!" onclick="showTab('links', event)">Links</a>
                         </li>
                     </ul>
                 </div>
