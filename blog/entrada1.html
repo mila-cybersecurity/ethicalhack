@@ -42,12 +42,11 @@
             font-size: 0.9rem; /* Smaller text for body content */
         }
         
-        /* Full height card */
+        /* Full width card */
         .card {
-            height: calc(100vh - 160px); /* Full height minus jumbotron and navbar */
             width: 100%;                 /* Full width of the parent column */
             max-width: 900px;            /* Limita el ancho máximo en pantallas grandes */
-            margin-top: 0;               /* No margin on top */
+            margin: 20px auto;           /* Center the card and add margin */
             border-radius: 0;            /* Remove border radius to fit better */
         }
 
@@ -59,7 +58,7 @@
 
         /* Ensure body takes full height */
         body {
-            height: 100vh;
+            height: auto; /* Let the body take the height based on content */
             margin: 0; /* Remove default margin */
         }
     </style>
@@ -151,8 +150,8 @@
                         </div>
                     </div>
                     
-                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Descarga de Archivos:</h4>
-                    <p class="card-title text-grey text-spacey"> Considere una URL que permite a los usuarios descargar sus facturas:</p>
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Descarga de Facturas:</h4>
+                    <p class="card-title text-grey text-spacey"> Supongamos que un sistema de facturación permite a los usuarios descargar sus facturas:</p>
                     <div class="card border-primary mb-3 text-center">
                         <div class="card-body">
                             <blockquote class="card-blockquote">
