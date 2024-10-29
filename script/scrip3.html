@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Analizador de Vulnerabilidades en Código Fuente</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/bootstrap4-neon-glow.min.css"> <!-- Ajustar la ruta -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
+
+    <style>
+        /* For mobile: make the navbar visible without collapsing */
+        @media (max-width: 767.98px) {
+            .navbar-collapse {
+                display: flex !important;
+                flex-direction: column;
+            }
+            .navbar-toggler {
+                display: none !important;
+            }
+        }
+
+        /* Adjust font size for the title on mobile screens */
+        @media (max-width: 767.98px) {
+            .jumbotron h1.display-2 {
+                font-size: 2.5rem; /* Adjusted size for mobile */
+            }
+        }
+
+        /* Adjust heading and text sizes */
+        h1.display-2 {
+            font-size: 4rem; /* Increased size for main title */
+        }
+        h4.card-title {
+            font-size: 2rem; /* Larger size for card titles */
+        }
+        .text-grey {
+            font-size: 0.9rem; /* Smaller text for body content */
+        }
+        
+        /* Full width card */
+        .card {
+            width: 100%;                 /* Full width of the parent column */
+            max-width: 900px;            /* Limita el ancho máximo en pantallas grandes */
+            margin: 20px auto;           /* Center the card and add margin */
+            border-radius: 0;            /* Remove border radius to fit better */
+        }
+
+        /* Adjust container */
+        .container {
+            padding: 0; /* Remove padding from container */
+            height: 100%; /* Full height for container */
+        }
+
+        /* Ensure body takes full height */
+        body {
+            height: auto; /* Let the body take the height based on content */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Align text to the left */
+        .card-body {
+            text-align: left; /* Aligns text to the left */
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar-dark text-white">
+    <div class="container">
+        <nav class="navbar px-0 navbar-expand-lg navbar-dark">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Inicio</a> <!-- Ajustar la ruta -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../blog.html">Blog</a> <!-- Ajustar la ruta -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../portfolio.html">Portafolio</a> <!-- Ajustar la ruta -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../contact.html">Contacto</a> <!-- Ajustar la ruta -->
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<!-- Jumbotron Section -->
+<div class="jumbotron bg-transparent mb-0" style="padding-bottom: 0;">
+    <div class="container">
+        <h1 class="display-2 portfolio-title">Scripts<span class="vim-caret">/</span></h1> 
+        <div class="lead mb-3 text-mono text-success">Python</div> 
+    </div>
+</div>
+<!-- Main content area -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10"> <!-- Ajustado a col-md-10 para mayor anchura en pantalla -->
+            <div class="card text-center">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#!">/</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#!"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">¿Qué es el Analizador de Vulnerabilidades en Código Fuente?</h4>
+                    <p class="card-title text-grey text-spacey">
+                        Este script en Python es un analizador básico de vulnerabilidades en código fuente. Busca patrones o "flags" de posibles vulnerabilidades en archivos de código, como contraseñas en texto plano, conexiones inseguras, inyecciones SQL y funciones inseguras que pueden comprometer la seguridad.
+                    </p>
+                    <p class="card-title text-grey text-spacey">
+                        Este tipo de análisis es estático, lo que significa que solo examina el código sin ejecutarlo, identificando palabras clave o patrones comunes que se asocian con vulnerabilidades.
+                    </p>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Ejemplo de Analizador de Vulnerabilidades en Código Fuente</h4>
+                    <p class="card-title text-grey text-spacey">
+                        A continuación, se muestra un ejemplo de cómo se puede implementar este análisis en Python:
+                    </p>
+                    <div class="card border-primary mb-3 text-center">
+                        <div class="card-body">
+                            <p class="mt-4 text-grey" style="font-weight: bold;">Código de Ejemplo en Python:</p>
+                            <pre><code>
+import os
+import re
+
+# Configuración de patrones para detectar vulnerabilidades comunes
+patterns = {
+    "SQL Injection": r"(SELECT|INSERT|DELETE|UPDATE|DROP|UNION|JOIN).*(['\"].*['\"])",
+    "Contraseñas en Texto Plano": r"(password\s*=\s*['\"].+['\"]|passwd\s*=\s*['\"].+['\"])",
+    "Conexiones HTTP": r"(http://)",
+    "Shell Injection": r"(os\.system|subprocess\.Popen|subprocess\.call|eval|exec)\s*\(.*\)",
+    "Inyección de Formato": r"(%s|%d|%f)",
+}
+
+# Función para analizar archivo por archivo
+def analizar_archivo(file_path):
+    with open(file_path, 'r', encoding='utf-8', errors='ignore') as file:
+        line_number = 1
+        for line in file:
+            for vuln, pattern in patterns.items():
+                if re.search(pattern, line, re.IGNORECASE):
+                    print(f"[!] Posible {vuln} en {file_path}, línea {line_number}: {line.strip()}")
+            line_number += 1
+
+# Función para recorrer un directorio y analizar cada archivo
+def analizar_directorio(directory_path):
+    for root, dirs, files in os.walk(directory_path):
+        for file in files:
+            # Filtrar archivos de código
+            if file.endswith(('.py', '.php', '.js', '.java', '.c', '.cpp')):
+                file_path = os.path.join(root, file)
+                print(f"\nAnalizando archivo: {file_path}")
+                analizar_archivo(file_path)
+
+# Ejecución principal
+if __name__ == "__main__":
+    directory = input("Introduce el directorio a analizar: ")
+    print(f"\nIniciando análisis de vulnerabilidades en el directorio {directory}\n{'-'*50}")
+    analizar_directorio(directory)
+    print("\nAnálisis completado.")
+                            </code></pre>
+                            <p class="card-title text-grey text-spacey">Este script recorre todos los archivos de código en un directorio y busca patrones específicos de vulnerabilidades.</p>
+                        </div>
+                    </div>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Conclusión</h4>
+                    <p class="card-title text-grey text-spacey">Este analizador básico ayuda a identificar vulnerabilidades comunes en el código fuente, facilitando la detección temprana de problemas de seguridad en las aplicaciones.</p>
+                    
+                    <div class="text-center"> <!-- Se añadió esta línea para centrar el botón -->
+                        <a href="../portfolio.html" class="btn btn-primary mt-4">Volver</a> <!-- Ajustar la ruta -->
+                    </div> <!-- Cierre del div añadido -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer bg-dark text-white text-center">
+    <div class="container">
+        <span class="text-muted">© 2024 Tu Nombre. Todos los derechos reservados.</span>
+    </div>
+</footer>
+
+<!-- Bootstrap and jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
