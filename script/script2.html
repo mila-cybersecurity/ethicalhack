@@ -1,1 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Escaneo de Puertos en Python</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/bootstrap4-neon-glow.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
+
+    <style>
+        @media (max-width: 767.98px) {
+            .navbar-collapse { display: flex !important; flex-direction: column; }
+            .navbar-toggler { display: none !important; }
+            .jumbotron h1.display-2 { font-size: 2.5rem; }
+        }
+        h1.display-2 { font-size: 4rem; }
+        h4.card-title { font-size: 2rem; }
+        .text-grey { font-size: 0.9rem; }
+        .card { width: 100%; max-width: 900px; margin: 20px auto; border-radius: 0; }
+        .container { padding: 0; height: 100%; }
+        body { height: auto; margin: 0; }
+        .card-body { text-align: left; }
+    </style>
+</head>
+<body>
+
+<div class="navbar-dark text-white">
+    <div class="container">
+        <nav class="navbar px-0 navbar-expand-lg navbar-dark">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../portfolio.html">Portafolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../contact.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="jumbotron bg-transparent mb-0" style="padding-bottom: 0;">
+    <div class="container">
+        <h1 class="display-2 portfolio-title">Scripts<span class="vim-caret">/</span></h1> 
+        <div class="lead mb-3 text-mono text-success">Python</div> 
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card text-center">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item"><a class="nav-link active" href="#!">/</a></li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Escaneo de Puertos en Python</h4>
+                    <p class="card-title text-grey text-spacey">
+                        El escaneo de puertos es una técnica utilizada en ciberseguridad para detectar qué servicios están abiertos en un host. Este script básico en Python escanea puertos comunes para evaluar la seguridad de una red.
+                    </p>
+                    <p class="card-title text-grey text-spacey">
+                        Este ejemplo en Python utiliza la biblioteca `socket` para conectarse a diferentes puertos de un host y verificar cuáles están abiertos. Puedes personalizar la lista de puertos o escanear todos los puertos desde el 1 al 65535.
+                    </p>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Código de Ejemplo en Python</h4>
+                    <div class="card border-primary mb-3 text-center">
+                        <div class="card-body">
+                            <p class="mt-4 text-grey" style="font-weight: bold;">Código para Escaneo de Puertos:</p>
+                            <pre><code>
+import socket
+from datetime import datetime
+
+# Definir la IP objetivo
+target = input("Introduce la IP a escanear: ")
+
+# Puertos comunes a escanear
+common_ports = [21, 22, 23, 25, 53, 80, 110, 135, 139, 143, 443, 445, 993, 995, 1433, 3306, 3389, 8080]
+
+print(f"\nIniciando escaneo en {target}...")
+start_time = datetime.now()
+
+# Escaneo de cada puerto en la lista
+for port in common_ports:
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    socket.setdefaulttimeout(1)
+    result = sock.connect_ex((target, port))
+    if result == 0:
+        print(f"Puerto {port}: Abierto")
+    else:
+        print(f"Puerto {port}: Cerrado")
+    sock.close()
+
+# Tiempo total de escaneo
+total_time = datetime.now() - start_time
+print(f"Escaneo completado en: {total_time}")
+                            </code></pre>
+                            <p class="card-title text-grey text-spacey">
+                                Este código realiza el escaneo de puertos de una IP especificada, mostrando cuáles están abiertos y calculando el tiempo total de ejecución.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h4 class="mt-4 text-grey" style="font-weight: bold;">Conclusión</h4>
+                    <p class="card-title text-grey text-spacey">
+                        El escaneo de puertos es fundamental para pruebas de penetración, ayudando a identificar servicios potencialmente vulnerables. Este script ofrece una base para construir un escaneo de puertos más avanzado.
+                    </p>
+                    
+                    <div class="text-center">
+                        <a href="../portfolio.html" class="btn btn-primary mt-4">Volver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT9T3T5zZ5/6L5h8L1owwKxQCh10fVu5a/vo0G2y0PTcQeyzQ6U" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-JjSmul/8d4e1IPT+Wl+k5zlfzB5z3ou3rE88uY6K9cKX5a8B3/mAO+Qd7p1wqR8E" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-5aBd5D7t7L8/ZPC/UgLWx0BLF1pFSkzY9lE42WFe9OImG2D1m2C9VekYlFf6dYwF" crossorigin="anonymous"></script>
+</body>
+</html>
 
